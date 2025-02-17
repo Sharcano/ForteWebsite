@@ -1,0 +1,12 @@
+# Visual Studio ile ilgili klasörler
+bin/
+obj/
+
+# Kullanıcı ve geçici dosyalar
+*.user
+*.suo
+*.log
+
+# Visual Studio otomatik oluşturulan proje ayar dosyaları
+*.vcxproj.user
+*.userprefs
