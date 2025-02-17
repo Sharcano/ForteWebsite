@@ -1,0 +1,736 @@
+﻿@{
+    var aboutElements = ViewBag.AboutElements as Dictionary<string, SiteElement>;
+}
+@{
+    var imageElements = aboutElements?
+        .Where(e => e.Value.ElementType == "image")
+        .ToDictionary(e => e.Key, e => e.Value);
+}
+
+
+
+@{
+    ViewData["Title"] = "Hakkımızda";
+}
+
+<div class="about-section">
+    <div class="about-content">
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <h1 data-editable="true" data-element-id="62" data-page-name="About">
+                @(aboutElements?["aboutHeading"]?.DefaultValue ?? "Hakkımızda")
+            </h1>
+        }
+        else
+        {
+            <h1>
+                @(aboutElements?["aboutHeading"]?.DefaultValue ?? "Hakkımızda")
+            </h1>
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <p data-editable="true" data-element-id="63" data-page-name="About">
+                @(aboutElements?["aboutText"]?.DefaultValue ?? "Forte, sistem entegrasyonu ve yazılım...")
+            </p>
+        }
+        else
+        {
+            <p>
+                @(aboutElements?["aboutText"]?.DefaultValue ?? "Forte, sistem entegrasyonu ve yazılım...")
+            </p>
+        }
+    </div>
+</div>
+
+
+<section class="vision-section">
+    <div class="vision-images">
+        <!-- Soldaki iki fotoğrafı üst üste (dikey) yerleştireceğiz -->
+        <div class="left-images">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="64" data-page-name="About"
+                     src="@(imageElements?["visionLeftImage1"]?.DefaultValue ?? "~/images/photo1.png")"
+                     alt="Fotoğraf 1" class="photo-one" />
+            }
+            else
+            {
+                <img src="@(imageElements?["visionLeftImage1"]?.DefaultValue ?? "~/images/photo1.png")"
+                     alt="Fotoğraf 1" class="photo-one" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="65" data-page-name="About"
+                     src="@(imageElements?["visionLeftImage2"]?.DefaultValue ?? "~/images/photo2.png")"
+                     alt="Fotoğraf 2" class="photo-two" />
+            }
+            else
+            {
+                <img src="@(imageElements?["visionLeftImage2"]?.DefaultValue ?? "~/images/photo2.png")"
+                     alt="Fotoğraf 2" class="photo-two" />
+            }
+        </div>
+
+        <!-- Üçüncü fotoğraf (örneğin soldaki iki resmin yanında) -->
+        <div class="right-image">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="66" data-page-name="About"
+                     src="@(imageElements?["visionRightImage"]?.DefaultValue ?? "~/images/photo5.png")"
+                     alt="Fotoğraf 3" class="photo-three" />
+            }
+            else
+            {
+                <img src="@(imageElements?["visionRightImage"]?.DefaultValue ?? "~/images/photo5.png")"
+                     alt="Fotoğraf 3" class="photo-three" />
+            }
+        </div>
+    </div>
+
+    <!-- Metin kısmı (sağ tarafta görünecek) -->
+    <div class="vision-content">
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <h2 data-editable="true" data-element-id="67" data-page-name="About">
+                @(aboutElements?["visionHeading"]?.DefaultValue ?? "Vizyonumuz")
+            </h2>
+        }
+        else
+        {
+            <h2>
+                @(aboutElements?["visionHeading"]?.DefaultValue ?? "Vizyonumuz")
+            </h2>
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <p data-editable="true" data-element-id="68" data-page-name="About">
+                @(aboutElements?["visionText"]?.DefaultValue ?? "İleri teknolojilerle donanmış altyapı...")
+            </p>
+        }
+        else
+        {
+            <p>
+                @(aboutElements?["visionText"]?.DefaultValue ?? "İleri teknolojilerle donanmış altyapı...")
+            </p>
+        }
+        <ul>
+            <li><span>✔</span> Yenilikçi</li>
+            <li><span>✔</span> Lider</li>
+            <li><span>✔</span> Müşteri Odaklı</li>
+        </ul>
+    </div>
+</section>
+
+<div class="mission-section">
+    <div class="mission-content">
+        <div class="mission-image">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="69" data-page-name="About"
+                     src="@(imageElements?["missionImage"]?.DefaultValue ?? "/images/mission.jpg")"
+                     alt="Misyonumuz Görseli" />
+            }
+            else
+            {
+                <img src="@(imageElements?["missionImage"]?.DefaultValue ?? "/images/mission.jpg")"
+                     alt="Misyonumuz Görseli" />
+            }
+        </div>
+        <div class="mission-text">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h1 data-editable="true" data-element-id="70" data-page-name="About">
+                    @(aboutElements?["missionHeading"]?.DefaultValue ?? "Misyonumuz")
+                </h1>
+            }
+            else
+            {
+                <h1>
+                    @(aboutElements?["missionHeading"]?.DefaultValue ?? "Misyonumuz")
+                </h1>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="71" data-page-name="About">
+                    @(aboutElements?["missionText"]?.DefaultValue ?? "Yenilikçi ve güvenilir çözümlerini...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(aboutElements?["missionText"]?.DefaultValue ?? "Yenilikçi ve güvenilir çözümlerini...")
+                </p>
+            }
+            <ul class="mission-list">
+                <li><i class="icon-check">✔</i> Müşteri Memnuniyeti</li>
+                <li><i class="icon-bar-chart">✔</i> Çözüm Odaklı Strateji</li>
+                <li><i class="icon-lightbulb">✔</i> Yenilikçi Yaklaşım</li>
+                <li><i class="icon-star">✔</i> Güven & Kalite</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="values-section">
+    @if (User?.Identity?.IsAuthenticated == true)
+    {
+        <h1 data-editable="true" data-element-id="72" data-page-name="About">
+            @(aboutElements?["valuesHeading"]?.DefaultValue ?? "Değerlerimiz")
+        </h1>
+    }
+    else
+    {
+        <h1>
+            @(aboutElements?["valuesHeading"]?.DefaultValue ?? "Değerlerimiz")
+        </h1>
+    }
+    <div class="values-container">
+        <div class="value-box">
+            <div class="hexagon">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="73" data-page-name="About">
+                        @(aboutElements?["value1Title"]?.DefaultValue ?? "Çeviklik")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(aboutElements?["value1Title"]?.DefaultValue ?? "Çeviklik")
+                    </h3>
+                }
+            </div>
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="74" data-page-name="About">
+                    @(aboutElements?["value1Text"]?.DefaultValue ?? "Forte’nin gelişen ve değişen teknolojiye...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(aboutElements?["value1Text"]?.DefaultValue ?? "Forte’nin gelişen ve değişen teknolojiye...")
+                </p>
+            }
+        </div>
+        <div class="value-box">
+            <div class="hexagon">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="75" data-page-name="About">
+                        @(aboutElements?["value2Title"]?.DefaultValue ?? "Sürekli Gelişim")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(aboutElements?["value2Title"]?.DefaultValue ?? "Sürekli Gelişim")
+                    </h3>
+                }
+            </div>
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="76" data-page-name="About">
+                    @(aboutElements?["value2Text"]?.DefaultValue ?? "Forte, teknolojiyi geliştiren yaklaşımları...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(aboutElements?["value2Text"]?.DefaultValue ?? "Forte, teknolojiyi geliştiren yaklaşımları...")
+                </p>
+            }
+        </div>
+        <div class="value-box">
+            <div class="hexagon">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="77" data-page-name="About">
+                        @(aboutElements?["value3Title"]?.DefaultValue ?? "Yüksek Kalite")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(aboutElements?["value3Title"]?.DefaultValue ?? "Yüksek Kalite")
+                    </h3>
+                }
+            </div>
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="78" data-page-name="About">
+                    @(aboutElements?["value3Text"]?.DefaultValue ?? "Forte, müşteri memnuniyetini ön planda...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(aboutElements?["value3Text"]?.DefaultValue ?? "Forte, müşteri memnuniyetini ön planda...")
+                </p>
+            }
+        </div>
+        <div class="value-box">
+            <div class="hexagon">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="79" data-page-name="About">
+                        @(aboutElements?["value4Title"]?.DefaultValue ?? "İnsan Kaynağımız")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(aboutElements?["value4Title"]?.DefaultValue ?? "İnsan Kaynağımız")
+                    </h3>
+                }
+            </div>
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="80" data-page-name="About">
+                    @(aboutElements?["value4Text"]?.DefaultValue ?? "Forte’nin uzman çalışanları, şirketin en değerli varlığıdır.")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(aboutElements?["value4Text"]?.DefaultValue ?? "Forte’nin uzman çalışanları, şirketin en değerli varlığıdır.")
+                </p>
+            }
+        </div>
+    </div>
+</div>
+
+<section class="timeline-section">
+    @if (User?.Identity?.IsAuthenticated == true)
+    {
+        <h2 data-editable="true" data-element-id="81" data-page-name="About" class="timeline-heading">
+            @(aboutElements?["timelineHeading"]?.DefaultValue ?? "Tarihçe")
+        </h2>
+    }
+    else
+    {
+        <h2 class="timeline-heading">
+            @(aboutElements?["timelineHeading"]?.DefaultValue ?? "Tarihçe")
+        </h2>
+    }
+
+    <div class="timeline-items">
+        <!-- 1. Kart -->
+        <div class="timeline-item">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="82" data-page-name="About" class="year">
+                    @(aboutElements?["timeline1Year"]?.DefaultValue ?? "Günümüz")
+                </h3>
+            }
+            else
+            {
+                <h3 class="year">
+                    @(aboutElements?["timeline1Year"]?.DefaultValue ?? "Günümüz")
+                </h3>
+            }
+            <p class="title"></p>
+            <p class="desc">
+            </p>
+        </div>
+
+        <!-- 2. Kart -->
+        <div class="timeline-item">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="83" data-page-name="About" class="year">
+                    @(aboutElements?["timeline2Year"]?.DefaultValue ?? "2023")
+                </h3>
+            }
+            else
+            {
+                <h3 class="year">
+                    @(aboutElements?["timeline2Year"]?.DefaultValue ?? "2023")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="84" data-page-name="About" class="title">
+                    @(aboutElements?["timeline2Title"]?.DefaultValue ?? "Forte Halka Açıldı")
+                </p>
+            }
+            else
+            {
+                <p class="title">
+                    @(aboutElements?["timeline2Title"]?.DefaultValue ?? "Forte Halka Açıldı")
+                </p>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="85" data-page-name="About" class="desc">
+                    @(aboutElements?["timeline2Desc"]?.DefaultValue ?? "Forte işlem kodu ile Borsa İstanbul'da işlem...")
+                </p>
+            }
+            else
+            {
+                <p class="desc">
+                    @(aboutElements?["timeline2Desc"]?.DefaultValue ?? "Forte işlem kodu ile Borsa İstanbul'da işlem...")
+                </p>
+            }
+        </div>
+
+        <!-- 3. Kart -->
+        <div class="timeline-item">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="86" data-page-name="About" class="year">
+                    @(aboutElements?["timeline3Year"]?.DefaultValue ?? "2021")
+                </h3>
+            }
+            else
+            {
+                <h3 class="year">
+                    @(aboutElements?["timeline3Year"]?.DefaultValue ?? "2021")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="87" data-page-name="About" class="title">
+                    @(aboutElements?["timeline3Title"]?.DefaultValue ?? "Sistem Güncellemeleri & Yeni İşbirlikleri")
+                </p>
+            }
+            else
+            {
+                <p class="title">
+                    @(aboutElements?["timeline3Title"]?.DefaultValue ?? "Sistem Güncellemeleri & Yeni İşbirlikleri")
+                </p>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="88" data-page-name="About" class="desc">
+                    @(aboutElements?["timeline3Desc"]?.DefaultValue ?? "DSİ sistemi Kapasite Artırımı, TAI sistemi...")
+                </p>
+            }
+            else
+            {
+                <p class="desc">
+                    @(aboutElements?["timeline3Desc"]?.DefaultValue ?? "DSİ sistemi Kapasite Artırımı, TAI sistemi...")
+                </p>
+            }
+        </div>
+
+        <!-- 4. Kart -->
+        <div class="timeline-item">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="89" data-page-name="About" class="year">
+                    @(aboutElements?["timeline4Year"]?.DefaultValue ?? "2020")
+                </h3>
+            }
+            else
+            {
+                <h3 class="year">
+                    @(aboutElements?["timeline4Year"]?.DefaultValue ?? "2020")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="90" data-page-name="About" class="title">
+                    @(aboutElements?["timeline4Title"]?.DefaultValue ?? "Yeni Projeler Á Kurulumlar Yenilemeler")
+                </p>
+            }
+            else
+            {
+                <p class="title">
+                    @(aboutElements?["timeline4Title"]?.DefaultValue ?? "Yeni Projeler Á Kurulumlar Yenilemeler")
+                </p>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="91" data-page-name="About" class="desc">
+                    @(aboutElements?["timeline4Desc"]?.DefaultValue ?? "DMO, PTT, HAVELSAN...")
+                </p>
+            }
+            else
+            {
+                <p class="desc">
+                    @(aboutElements?["timeline4Desc"]?.DefaultValue ?? "DMO, PTT, HAVELSAN...")
+                </p>
+            }
+        </div>
+
+        <!-- 5. Kart -->
+        <div class="timeline-item">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="92" data-page-name="About" class="year">
+                    @(aboutElements?["timeline5Year"]?.DefaultValue ?? "2019")
+                </h3>
+            }
+            else
+            {
+                <h3 class="year">
+                    @(aboutElements?["timeline5Year"]?.DefaultValue ?? "2019")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="93" data-page-name="About" class="title">
+                    @(aboutElements?["timeline5Title"]?.DefaultValue ?? "Altyapı & Bakım Destek Projeleri")
+                </p>
+            }
+            else
+            {
+                <p class="title">
+                    @(aboutElements?["timeline5Title"]?.DefaultValue ?? "Altyapı & Bakım Destek Projeleri")
+                </p>
+            }
+
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="94" data-page-name="About" class="desc">
+                    @(aboutElements?["timeline5Desc"]?.DefaultValue ?? "ASELSAN, TEDAŞ, Vakıflar Genel Müdürlüğü...")
+                </p>
+            }
+            else
+            {
+                <p class="desc">
+                    @(aboutElements?["timeline5Desc"]?.DefaultValue ?? "ASELSAN, TEDAŞ, Vakıflar Genel Müdürlüğü...")
+                </p>
+            }
+        </div>
+
+        <!-- 6. Kart -->
+        <div class="timeline-item">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="95" data-page-name="About" class="year">
+                    @(aboutElements?["timeline6Year"]?.DefaultValue ?? "2016")
+                </h3>
+            }
+            else
+            {
+                <h3 class="year">
+                    @(aboutElements?["timeline6Year"]?.DefaultValue ?? "2016")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="96" data-page-name="About" class="title">
+                    @(aboutElements?["timeline6Title"]?.DefaultValue ?? "Sistem Kurulumları")
+                </p>
+            }
+            else
+            {
+                <p class="title">
+                    @(aboutElements?["timeline6Title"]?.DefaultValue ?? "Sistem Kurulumları")
+                </p>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="97" data-page-name="About" class="desc">
+                    @(aboutElements?["timeline6Desc"]?.DefaultValue ?? "ÖSYM Veri Depolama Sistemi Kurulumu.")
+                </p>
+            }
+            else
+            {
+                <p class="desc">
+                    @(aboutElements?["timeline6Desc"]?.DefaultValue ?? "ÖSYM Veri Depolama Sistemi Kurulumu.")
+                </p>
+            }
+        </div>
+
+        <!-- 7. Kart -->
+        <div class="timeline-item">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="98" data-page-name="About" class="year">
+                    @(aboutElements?["timeline7Year"]?.DefaultValue ?? "2012")
+                </h3>
+            }
+            else
+            {
+                <h3 class="year">
+                    @(aboutElements?["timeline7Year"]?.DefaultValue ?? "2012")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="99" data-page-name="About" class="title">
+                    @(aboutElements?["timeline7Title"]?.DefaultValue ?? "Dijital Arşiv Sistemi & Yeni İşbirlikleri")
+                </p>
+            }
+            else
+            {
+                <p class="title">
+                    @(aboutElements?["timeline7Title"]?.DefaultValue ?? "Dijital Arşiv Sistemi & Yeni İşbirlikleri")
+                </p>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="100" data-page-name="About" class="desc">
+                    @(aboutElements?["timeline7Desc"]?.DefaultValue ?? "Anadolu Ajansı Veri Merkezi, Milii Kütüphane...")
+                </p>
+            }
+            else
+            {
+                <p class="desc">
+                    @(aboutElements?["timeline7Desc"]?.DefaultValue ?? "Anadolu Ajansı Veri Merkezi, Milii Kütüphane...")
+                </p>
+            }
+        </div>
+
+        <!-- 8. Kart -->
+        <div class="timeline-item">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="101" data-page-name="About" class="year">
+                    @(aboutElements?["timeline8Year"]?.DefaultValue ?? "2006")
+                </h3>
+            }
+            else
+            {
+                <h3 class="year">
+                    @(aboutElements?["timeline8Year"]?.DefaultValue ?? "2006")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="102" data-page-name="About" class="title">
+                    @(aboutElements?["timeline8Title"]?.DefaultValue ?? "Sistem Entegrasyonu")
+                </p>
+            }
+            else
+            {
+                <p class="title">
+                    @(aboutElements?["timeline8Title"]?.DefaultValue ?? "Sistem Entegrasyonu")
+                </p>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="103" data-page-name="About" class="desc">
+                    @(aboutElements?["timeline8Desc"]?.DefaultValue ?? "Forte Teknoloji sistem entegrasyonu alanında faaliyet göstermeye başladı.")
+                </p>
+            }
+            else
+            {
+                <p class="desc">
+                    @(aboutElements?["timeline8Desc"]?.DefaultValue ?? "Forte Teknoloji sistem entegrasyonu alanında faaliyet göstermeye başladı.")
+                </p>
+            }
+        </div>
+    </div>
+</section>
+
+<div class="footer-bottom">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="104" data-page-name="About"
+                     src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+            else
+            {
+                <img src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+        </div>
+
+        <!-- Bağlantı Sütunları -->
+        <div class="footer-links">
+
+            <!-- KURUMSAL -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="105" data-page-name="About">
+                        @(aboutElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(aboutElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                <ul>
+                    <!-- Hakkımızda -->
+                    <li><a asp-controller="Home" asp-action="About">Hakkımızda</a></li>
+
+                    <!-- "Politikalarımız" yerine Çalışanlar -->
+                    <li><a asp-controller="Home" asp-action="Employees">Çalışanlar</a></li>
+
+                    <!-- "Kariyer" yerine Hizmetlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Services">Hizmetlerimiz</a></li>
+
+                    <!-- Referanslar -->
+                    <li><a asp-controller="Home" asp-action="References">Referanslar</a></li>
+
+                    <!-- "Blog" yerine Ürünlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Products">Ürünlerimiz</a></li>
+                    <li><a asp-controller="Home" asp-action="Iletisim">İletişim</a></li>
+                </ul>
+            </div>
+
+            <!-- YAZILIM ÇÖZÜMLERİ -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="106" data-page-name="About">
+                        @(aboutElements?["footerYazilimCozumleriTitle"]?.DefaultValue ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(aboutElements?["footerYazilimCozumleriTitle"]?.DefaultValue ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                <ul>
+                    <!-- FORIPS Suite -->
+                    <li><a href="/Home/Products#forips-suite">FORIPS Suite</a></li>
+                    <!-- DeskFor -->
+                    <li><a href="/Home/Products#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+                    <!-- DOKU -->
+                    <li><a href="/Home/Products#doku">DOKU</a></li>
+                    <!-- ELDOK -->
+                    <li><a href="/Home/Products#eldok">ELDOK</a></li>
+                </ul>
+            </div>
+
+            <!-- SİSTEM ÇÖZÜMLERİ KALDIRILDI,
+                 İSTEK ÜZERİNE TEK SÜTUN GİTTİ -->
+            <!-- İLETİŞİM -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="107" data-page-name="About">
+                        @(aboutElements?["footerIletisimTitle"]?.DefaultValue ?? "İletişim")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(aboutElements?["footerIletisimTitle"]?.DefaultValue ?? "İletişim")
+                    </h3>
+                }
+
+                <ul>
+                    <li><a href="mailto:info@forte.com.tr">info@forte.com.tr</a></li>
+                    <li><a href="tel:03124734083">0312 473 40 83</a></li>
+                    <li><a href="tel:03124734086">0312 473 40 86</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-logos">
+            <a href="https://www.linkedin.com/company/forte-teknoloji/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <img src="/images/link13.png" alt="LinkedIn" />
+            </a>
+            <a href="https://x.com/forte_teknoloji" target="_blank" rel="noopener noreferrer">
+                <img src="/images/x1.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCj48ONm5KMQZXUSsMZIFo3w" target="_blank" rel="noopener noreferrer">
+                <img src="/images/youtube1.png" alt="YouTube" />
+            </a>
+        </div>
+    </div>
+</div>

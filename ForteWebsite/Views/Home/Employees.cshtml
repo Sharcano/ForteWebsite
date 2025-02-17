@@ -1,0 +1,287 @@
+﻿@{
+    var employeesElements = ViewBag.EmployeesElements as Dictionary<string, SiteElement>;
+}
+@{
+    var imageElements = employeesElements?
+        .Where(e => e.Value.ElementType == "image")
+        .ToDictionary(e => e.Key, e => e.Value);
+}
+
+@{
+    ViewData["Title"] = "Çalışanlar";
+}
+
+<div class="hero-section">
+    <div class="overlay"></div>
+    <div class="content">
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <h1 data-editable="true" data-element-id="159" data-page-name="Employees">
+                @(employeesElements?["employeesHeading"]?.DefaultValue ?? "Çalışanlar")
+            </h1>
+        }
+        else
+        {
+            <h1>
+                @(employeesElements?["employeesHeading"]?.DefaultValue ?? "Çalışanlar")
+            </h1>
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <p data-editable="true" data-element-id="160" data-page-name="Employees">
+                @(employeesElements?["employeesText1"]?.DefaultValue
+                    ?? "Forte bünyesinde gerek bilgi ve iletişim...")
+            </p>
+        }
+        else
+        {
+            <p>
+                @(employeesElements?["employeesText1"]?.DefaultValue
+                    ?? "Forte bünyesinde gerek bilgi ve iletişim...")
+            </p>
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <p data-editable="true" data-element-id="161" data-page-name="Employees">
+                @(employeesElements?["employeesText2"]?.DefaultValue
+                    ?? "Mutlu bir iş ortamı, özgürce üretebilmek...")
+            </p>
+        }
+        else
+        {
+            <p>
+                @(employeesElements?["employeesText2"]?.DefaultValue
+                    ?? "Mutlu bir iş ortamı, özgürce üretebilmek...")
+            </p>
+        }
+    </div>
+</div>
+
+<section class="professional-section">
+    <div class="professional-container">
+        <div class="image-container">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="162" data-page-name="Employees"
+                     src="@(imageElements?["professionalImage"]?.DefaultValue ?? "/images/your-image.jpg")"
+                     alt="Deneyimli Profesyoneller" />
+            }
+            else
+            {
+                <img src="@(imageElements?["professionalImage"]?.DefaultValue ?? "/images/your-image.jpg")"
+                     alt="Deneyimli Profesyoneller" />
+            }
+        </div>
+        <div class="text-container">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h2 data-editable="true" data-element-id="163" data-page-name="Employees">
+                    @(employeesElements?["professionalHeading"]?.DefaultValue ?? "Deneyimli Profesyoneller")
+                </h2>
+            }
+            else
+            {
+                <h2>
+                    @(employeesElements?["professionalHeading"]?.DefaultValue ?? "Deneyimli Profesyoneller")
+                </h2>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="164" data-page-name="Employees">
+                    @(employeesElements?["professionalText"]?.DefaultValue
+                        ?? "Deneyimli profesyoneller, kendileri gibi uzman kişilerden...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(employeesElements?["professionalText"]?.DefaultValue
+                        ?? "Deneyimli profesyoneller, kendileri gibi uzman kişilerden...")
+                </p>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="employee-section">
+    <div class="employee-container">
+        <!-- Çalışanları listelemek için buton -->
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <button id="employee-btn" class="employee-btn"
+                    data-editable="true" data-element-id="166" data-page-name="Employees">
+                @(employeesElements?["employeeButtonText"]?.DefaultValue
+                    ?? "Çalışanlar listesini görüntüleyin")
+            </button>
+        }
+        else
+        {
+            <button id="employee-btn" class="employee-btn">
+                @(employeesElements?["employeeButtonText"]?.DefaultValue
+                    ?? "Çalışanlar listesini görüntüleyin")
+            </button>
+        }
+
+        <!-- Çalışanların listeleneceği tablo -->
+        <table id="employee-table" class="employee-table" style="display: none; margin-top: 20px;">
+            <thead>
+                <tr>
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
+                        <th data-editable="true" data-element-id="166" data-page-name="Employees">
+                            @(employeesElements?["employeeTableHeaderName"]?.DefaultValue ?? "İsim")
+                        </th>
+                    }
+                    else
+                    {
+                        <th>
+                            @(employeesElements?["employeeTableHeaderName"]?.DefaultValue ?? "İsim")
+                        </th>
+                    }
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
+                        <th data-editable="true" data-element-id="167" data-page-name="Employees">
+                            @(employeesElements?["employeeTableHeaderRole"]?.DefaultValue ?? "Görev")
+                        </th>
+                    }
+                    else
+                    {
+                        <th>
+                            @(employeesElements?["employeeTableHeaderRole"]?.DefaultValue ?? "Görev")
+                        </th>
+                    }
+                    <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Veriler buraya JavaScript ile eklenecek -->
+            </tbody>
+        </table>
+    </div>
+    <!-- JavaScript dosyasını bağlama -->
+    <script src="site.js"></script>
+</section>
+
+
+
+
+<div class="footer-bottom">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="168" data-page-name="Employees"
+                     src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+            else
+            {
+                <img src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+        </div>
+
+        <!-- Bağlantı Sütunları -->
+        <div class="footer-links">
+
+            <!-- KURUMSAL -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="169" data-page-name="Employees">
+                        @(employeesElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(employeesElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                <ul>
+                    <!-- Hakkımızda -->
+                    <li><a asp-controller="Home" asp-action="About">Hakkımızda</a></li>
+
+                    <!-- "Politikalarımız" yerine Çalışanlar -->
+                    <li><a asp-controller="Home" asp-action="Employees">Çalışanlar</a></li>
+
+                    <!-- "Kariyer" yerine Hizmetlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Services">Hizmetlerimiz</a></li>
+
+                    <!-- Referanslar -->
+                    <li><a asp-controller="Home" asp-action="References">Referanslar</a></li>
+
+                    <!-- "Blog" yerine Ürünlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Products">Ürünlerimiz</a></li>
+                    <li><a asp-controller="Home" asp-action="Iletisim">İletişim</a></li>
+                </ul>
+            </div>
+
+            <!-- YAZILIM ÇÖZÜMLERİ -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="170" data-page-name="Employees">
+                        @(employeesElements?["footerYazilimCozumleriTitle"]?.DefaultValue
+                            ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(employeesElements?["footerYazilimCozumleriTitle"]?.DefaultValue
+                            ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                <ul>
+                    <!-- FORIPS Suite -->
+                    <li><a href="/Home/Products#forips-suite">FORIPS Suite</a></li>
+                    <!-- DeskFor -->
+                    <li><a href="/Home/Products#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+                    <!-- DOKU -->
+                    <li><a href="/Home/Products#doku">DOKU</a></li>
+                    <!-- ELDOK -->
+                    <li><a href="/Home/Products#eldok">ELDOK</a></li>
+                </ul>
+            </div>
+
+            <!-- SİSTEM ÇÖZÜMLERİ KALDIRILDI,
+                 İSTEK ÜZERİNE TEK SÜTUN GİTTİ -->
+            <!-- İLETİŞİM -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="171" data-page-name="Employees">
+                        @(employeesElements?["footerIletisimTitle"]?.DefaultValue ?? "İletişim")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(employeesElements?["footerIletisimTitle"]?.DefaultValue ?? "İletişim")
+                    </h3>
+                }
+                <ul>
+                    <li><a href="mailto:info@forte.com.tr">info@forte.com.tr</a></li>
+                    <li><a href="tel:03124734083">0312 473 40 83</a></li>
+                    <li><a href="tel:03124734086">0312 473 40 86</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-logos">
+            <a href="https://www.linkedin.com/company/forte-teknoloji/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <img src="/images/link13.png" alt="LinkedIn" />
+            </a>
+            <a href="https://x.com/forte_teknoloji" target="_blank" rel="noopener noreferrer">
+                <img src="/images/x1.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCj48ONm5KMQZXUSsMZIFo3w" target="_blank" rel="noopener noreferrer">
+                <img src="/images/youtube1.png" alt="YouTube" />
+            </a>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,686 @@
+﻿@{
+    var servicesElements = ViewBag.ServicesElements as Dictionary<string, SiteElement>;
+}
+@{
+    var imageElements = servicesElements?
+        .Where(e => e.Value.ElementType == "image")
+        .ToDictionary(e => e.Key, e => e.Value);
+}
+
+<div class="services-page">
+<div class="what-we-do">
+    <div class="left-section">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h1 data-editable="true" data-element-id="172" data-page-name="Services">
+                    @(servicesElements?["whatWeDoHeading"]?.DefaultValue ?? "Ne Yapıyoruz?")
+                </h1>
+            }
+            else
+            {
+                <h1>
+                    @(servicesElements?["whatWeDoHeading"]?.DefaultValue ?? "Ne Yapıyoruz?")
+                </h1>
+            }
+        <div class="content-box">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h2 data-editable="true" data-element-id="173" data-page-name="Services">
+                        @(servicesElements?["whatWeDoSubheading"]?.DefaultValue
+                            ?? "Web & Masaüstü & Mobil Uygulamaları Geliştiriyoruz")
+                    </h2>
+                }
+                else
+                {
+                    <h2>
+                        @(servicesElements?["whatWeDoSubheading"]?.DefaultValue
+                            ?? "Web & Masaüstü & Mobil Uygulamaları Geliştiriyoruz")
+                    </h2>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="174" data-page-name="Services">
+                        @(servicesElements?["whatWeDoText"]?.DefaultValue
+                            ?? "Forte, IT pazarında uzun süredir var olan ve 150'den fazla...")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(servicesElements?["whatWeDoText"]?.DefaultValue
+                            ?? "Forte, IT pazarında uzun süredir var olan ve 150'den fazla...")
+                    </p>
+                }
+            <ul>
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
+                        <li data-editable="true" data-element-id="175" data-page-name="Services">
+                            @(servicesElements?["whatWeDoBullet1"]?.DefaultValue
+                                ?? "Web uygulamalarını entegre etme ve eski sistemleri...")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @(servicesElements?["whatWeDoBullet1"]?.DefaultValue
+                                ?? "Web uygulamalarını entegre etme ve eski sistemleri...")
+                        </li>
+                    }
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
+                        <li data-editable="true" data-element-id="176" data-page-name="Services">
+                            @(servicesElements?["whatWeDoBullet2"]?.DefaultValue
+                                ?? "Geliştiricilerimiz, kapsamlı full-stack bilgilerini kullanarak...")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @(servicesElements?["whatWeDoBullet2"]?.DefaultValue
+                                ?? "Geliştiricilerimiz, kapsamlı full-stack bilgilerini kullanarak...")
+                        </li>
+                    }
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
+                        <li data-editable="true" data-element-id="177" data-page-name="Services">
+                            @(servicesElements?["whatWeDoBullet3"]?.DefaultValue
+                                ?? "Sorunsuz çalışan, esnek bir kod yapısı ile bakımı yapılabilir...")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @(servicesElements?["whatWeDoBullet3"]?.DefaultValue
+                                ?? "Sorunsuz çalışan, esnek bir kod yapısı ile bakımı yapılabilir...")
+                        </li>
+                    }
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
+                        <li data-editable="true" data-element-id="178" data-page-name="Services">
+                            @(servicesElements?["whatWeDoBullet4"]?.DefaultValue
+                                ?? "Windows, Linux/Unix, Mac OS & Android platformları için...")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @(servicesElements?["whatWeDoBullet4"]?.DefaultValue
+                                ?? "Windows, Linux/Unix, Mac OS & Android platformları için...")
+                        </li>
+                    }
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
+                        <li data-editable="true" data-element-id="179" data-page-name="Services">
+                            @(servicesElements?["whatWeDoBullet5"]?.DefaultValue
+                                ?? "Bağımsız (offline/standalone) kurulum kaynağı yazılımlar sağlar.")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @(servicesElements?["whatWeDoBullet5"]?.DefaultValue
+                                ?? "Bağımsız (offline/standalone) kurulum kaynağı yazılımlar sağlar.")
+                        </li>
+                    }
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
+                        <li data-editable="true" data-element-id="180" data-page-name="Services">
+                            @(servicesElements?["whatWeDoBullet6"]?.DefaultValue
+                                ?? "Yazılım yardımcı programları ve veri işleme araçları geliştirir.")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @(servicesElements?["whatWeDoBullet6"]?.DefaultValue
+                                ?? "Yazılım yardımcı programları ve veri işleme araçları geliştirir.")
+                        </li>
+                    }
+            </ul>
+        </div>
+    </div>
+    <div class="right-section">
+        <div class="tech-box">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h2 data-editable="true" data-element-id="181" data-page-name="Services">
+                        @(servicesElements?["techHeading"]?.DefaultValue
+                            ?? "Hangi Teknolojileri Kullanıyoruz?")
+                    </h2>
+                }
+                else
+                {
+                    <h2>
+                        @(servicesElements?["techHeading"]?.DefaultValue
+                            ?? "Hangi Teknolojileri Kullanıyoruz?")
+                    </h2>
+                }
+            <ul>
+                <li>C#</li>
+                <li>asp.net</li>
+                <li>HTML5</li>
+                <li>Javascript</li>
+                <li>React</li>
+                <li>Angular</li>
+                <li>Vue</li>
+                <li>.NET</li>
+                <li>PHP (Laravel)</li>
+                <li>Python</li>
+                <li>Xamarin</li>
+                <li>Kotlin</li>
+                <li>Swift</li>
+                <li>Objective-C</li>
+            </ul>
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="182" data-page-name="Services"
+                         src="@(imageElements?["techImage"]?.DefaultValue ?? "/images/place-holder.jpg")"
+                         alt="Teknoloji Görseli" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["techImage"]?.DefaultValue ?? "/images/place-holder.jpg")"
+                         alt="Teknoloji Görseli" />
+                }
+        </div>
+    </div>
+</div>
+
+
+<div class="cloud-section">
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <h1 data-editable="true" data-element-id="183" data-page-name="Services">
+                @(servicesElements?["cloudHeading"]?.DefaultValue
+                    ?? "Bulut Altyapısı Kullanıyoruz")
+            </h1>
+        }
+        else
+        {
+            <h1>
+                @(servicesElements?["cloudHeading"]?.DefaultValue
+                    ?? "Bulut Altyapısı Kullanıyoruz")
+            </h1>
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <p data-editable="true" data-element-id="184" data-page-name="Services">
+                @(servicesElements?["cloudText"]?.DefaultValue
+                    ?? "Güvenilir ve yüksek düzeyde ölçeklenebilir özel bulut...")
+            </p>
+        }
+        else
+        {
+            <p>
+                @(servicesElements?["cloudText"]?.DefaultValue
+                    ?? "Güvenilir ve yüksek düzeyde ölçeklenebilir özel bulut...")
+            </p>
+        }
+    <ul>
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <li data-editable="true" data-element-id="185" data-page-name="Services">
+                    @(servicesElements?["cloudBullet1"]?.DefaultValue
+                        ?? "Uygulamaları ve iş akışlarını Bulut’a taşımak...")
+                </li>
+            }
+            else
+            {
+                <li>
+                    @(servicesElements?["cloudBullet1"]?.DefaultValue
+                        ?? "Uygulamaları ve iş akışlarını Bulut’a taşımak...")
+                </li>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <li data-editable="true" data-element-id="186" data-page-name="Services">
+                    @(servicesElements?["cloudBullet2"]?.DefaultValue
+                        ?? "Kapalı kalma süresini azaltmak için akıllı tasarım...")
+                </li>
+            }
+            else
+            {
+                <li>
+                    @(servicesElements?["cloudBullet2"]?.DefaultValue
+                        ?? "Kapalı kalma süresini azaltmak için akıllı tasarım...")
+                </li>
+            }
+
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <li data-editable="true" data-element-id="187" data-page-name="Services">
+                    @(servicesElements?["cloudBullet3"]?.DefaultValue
+                        ?? "Platform ve altyapınız için yeniden tasarım...")
+                </li>
+            }
+            else
+            {
+                <li>
+                    @(servicesElements?["cloudBullet3"]?.DefaultValue
+                        ?? "Platform ve altyapınız için yeniden tasarım...")
+                </li>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <li data-editable="true" data-element-id="188" data-page-name="Services">
+                    @(servicesElements?["cloudBullet4"]?.DefaultValue
+                        ?? "Veri akışlarınızı optimize etmek için modern hizmet odaklı...")
+                </li>
+            }
+            else
+            {
+                <li>
+                    @(servicesElements?["cloudBullet4"]?.DefaultValue
+                        ?? "Veri akışlarınızı optimize etmek için modern hizmet odaklı...")
+                </li>
+            }
+    </ul>
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <img data-editable="true" data-element-id="189" data-page-name="Services"
+                 src="@(imageElements?["cloudImage"]?.DefaultValue ?? "/images/place-holder3.jpg")"
+                 alt="Teknoloji Görseli" />
+        }
+        else
+        {
+            <img src="@(imageElements?["cloudImage"]?.DefaultValue ?? "/images/place-holder3.jpg")"
+                 alt="Teknoloji Görseli" />
+        }
+</div>
+
+<div class="integration-section">
+    <div class="integration-left">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h1 data-editable="true" data-element-id="190" data-page-name="Services">
+                    @(servicesElements?["integrationHeading"]?.DefaultValue
+                        ?? "Her Seviyede Entegrasyon Yapıyoruz")
+                </h1>
+            }
+            else
+            {
+                <h1>
+                    @(servicesElements?["integrationHeading"]?.DefaultValue
+                        ?? "Her Seviyede Entegrasyon Yapıyoruz")
+                </h1>
+            }
+        <ul>
+            <li>
+                <strong>Sunum Düzeyinde Entegrasyon:</strong> ile farklı uygulamalarınızı tek bir uygulamada birleştiriyoruz. Bilgi toplamak ve düzenlemek için eski yazılımlarınızı kullanmaya devam ederken en yüzde modern ve kurumsal bir görünüm yakalamanızı sağlıyoruz.
+            </li>
+            <li>
+                <strong>İş Süreç Entegrasyonu:</strong> yaparak, temel iş süreçlerini yerel ve bulut sunucularına bağlıyoruz. Sahip olduğunuz bireysel uygulamaları bağlamak, iş akışlarını düzenlemek ve önceliklendirmek ve hataları azaltırken en verimliliği artırmak için otomasyonu ve yapay zekanın gücünden faydalanıyoruz.
+            </li>
+            <li>
+                <strong>Veri Entegrasyonu:</strong> kullandığınız veri tabanı teknolojisinden bağımsız olarak optimum düzeyde sağlıyoruz. Dilerseniz, veri yönetimi, aktarımı ve sistemi entegre operasyonları konusunda yerinde destek sağlıyor ya da sizin adınıza yürütüyoruz.
+            </li>
+            <li>
+                <strong>İletişim Düzeyinde Entegrasyon:</strong> uygulama programlama arayüzleri (API’ler) veya bilinen özel protokoller için araçları oluşturuyor ve her uygulamanın birbiriyle etkilen anlayabileceği bilgileri almasını sağlıyoruz.
+            </li>
+        </ul>
+    </div>
+    <div class="integration-right">
+        <div class="integration-card">
+            <p>İhtiyacınıza uygun olarak her seviyede entegrasyon sağlıyoruz</p>
+            <img src="/images/place-holder4.webp" alt="Entegrasyon Görseli">
+        </div>
+    </div>
+</div>
+
+<div class="workflow-section">
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <h1 data-editable="true" data-element-id="191" data-page-name="Services">
+                @(servicesElements?["workflowHeading"]?.DefaultValue
+                    ?? "İş Akışını En Verimli Şekilde Oluşturuyoruz")
+            </h1>
+        }
+        else
+        {
+            <h1>
+                @(servicesElements?["workflowHeading"]?.DefaultValue
+                    ?? "İş Akışını En Verimli Şekilde Oluşturuyoruz")
+            </h1>
+        }
+
+    <!-- Konsept -->
+    <div class="workflow-step">
+        <div class="step-content">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h2 data-editable="true" data-element-id="192" data-page-name="Services">
+                        @(servicesElements?["workflowStep1Heading"]?.DefaultValue ?? "01. KONSEPT")
+                    </h2>
+                }
+                else
+                {
+                    <h2>
+                        @(servicesElements?["workflowStep1Heading"]?.DefaultValue ?? "01. KONSEPT")
+                    </h2>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="193" data-page-name="Services">
+                        @(servicesElements?["workflowStep1Text"]?.DefaultValue
+                            ?? "Fikri olan ancak net stratejiye ihtiyaç duyan...")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(servicesElements?["workflowStep1Text"]?.DefaultValue
+                            ?? "Fikri olan ancak net stratejiye ihtiyaç duyan...")
+                    </p>
+                }
+        </div>
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="194" data-page-name="Services"
+                     src="@(imageElements?["workflowStep1Image"]?.DefaultValue ?? "/images/concept.webp")"
+                     alt="Konsept Görseli" />
+            }
+            else
+            {
+                <img src="@(imageElements?["workflowStep1Image"]?.DefaultValue ?? "/images/concept.webp")"
+                     alt="Konsept Görseli" />
+            }
+    </div>
+
+    <!-- Prototip -->
+    <div class="workflow-step">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="195" data-page-name="Services"
+                     src="@(imageElements?["workflowStep2Image"]?.DefaultValue ?? "/images/prototype.webp")"
+                     alt="Prototip Görseli" />
+            }
+            else
+            {
+                <img src="@(imageElements?["workflowStep2Image"]?.DefaultValue ?? "/images/prototype.webp")"
+                     alt="Prototip Görseli" />
+            }
+        <div class="step-content">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h2 data-editable="true" data-element-id="196" data-page-name="Services">
+                        @(servicesElements?["workflowStep2Heading"]?.DefaultValue ?? "02. PROTOTİP")
+                    </h2>
+                }
+                else
+                {
+                    <h2>
+                        @(servicesElements?["workflowStep2Heading"]?.DefaultValue ?? "02. PROTOTİP")
+                    </h2>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="197" data-page-name="Services">
+                        @(servicesElements?["workflowStep2Text"]?.DefaultValue
+                            ?? "Tıklanabilir versiyon sunarak temel işlevsellik sağlar...")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(servicesElements?["workflowStep2Text"]?.DefaultValue
+                            ?? "Tıklanabilir versiyon sunarak temel işlevsellik sağlar...")
+                    </p>
+                }
+        </div>
+    </div>
+
+    <!-- MVP -->
+    <div class="workflow-step">
+        <div class="step-content">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h2 data-editable="true" data-element-id="198" data-page-name="Services">
+                        @(servicesElements?["workflowStep3Heading"]?.DefaultValue ?? "03. MVP")
+                    </h2>
+                }
+                else
+                {
+                    <h2>
+                        @(servicesElements?["workflowStep3Heading"]?.DefaultValue ?? "03. MVP")
+                    </h2>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="199" data-page-name="Services">
+                        @(servicesElements?["workflowStep3Text"]?.DefaultValue
+                            ?? "İlk sürümle ürünün yatırımcılara sunulmasını hızlandırıyoruz.")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(servicesElements?["workflowStep3Text"]?.DefaultValue
+                            ?? "İlk sürümle ürünün yatırımcılara sunulmasını hızlandırıyoruz.")
+                    </p>
+                }
+        </div>
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="200" data-page-name="Services"
+                     src="@(imageElements?["workflowStep3Image"]?.DefaultValue ?? "/images/mvp.webp")"
+                     alt="MVP Görseli" />
+            }
+            else
+            {
+                <img src="@(imageElements?["workflowStep3Image"]?.DefaultValue ?? "/images/mvp.webp")"
+                     alt="MVP Görseli" />
+            }
+    </div>
+
+    <!-- Tüm Ürün -->
+    <div class="workflow-step">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="201" data-page-name="Services"
+                     src="@(imageElements?["workflowStep4Image"]?.DefaultValue ?? "/images/full-product.webp")"
+                     alt="Tüm Ürün Görseli" />
+            }
+            else
+            {
+                <img src="@(imageElements?["workflowStep4Image"]?.DefaultValue ?? "/images/full-product.webp")"
+                     alt="Tüm Ürün Görseli" />
+            }
+        <div class="step-content">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h2 data-editable="true" data-element-id="202" data-page-name="Services">
+                        @(servicesElements?["workflowStep4Heading"]?.DefaultValue ?? "04. TÜM ÜRÜN")
+                    </h2>
+                }
+                else
+                {
+                    <h2>
+                        @(servicesElements?["workflowStep4Heading"]?.DefaultValue ?? "04. TÜM ÜRÜN")
+                    </h2>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="203" data-page-name="Services">
+                        @(servicesElements?["workflowStep4Text"]?.DefaultValue
+                            ?? "Müşteri geri bildirimleriyle tam işlevsel arayüz geliştiriyoruz.")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(servicesElements?["workflowStep4Text"]?.DefaultValue
+                            ?? "Müşteri geri bildirimleriyle tam işlevsel arayüz geliştiriyoruz.")
+                    </p>
+                }
+        </div>
+    </div>
+
+    <!-- Güncelleme -->
+    <div class="workflow-step">
+        <div class="step-content">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h2 data-editable="true" data-element-id="204" data-page-name="Services">
+                        @(servicesElements?["workflowStep5Heading"]?.DefaultValue ?? "05. GÜNCELLEME")
+                    </h2>
+                }
+                else
+                {
+                    <h2>
+                        @(servicesElements?["workflowStep5Heading"]?.DefaultValue ?? "05. GÜNCELLEME")
+                    </h2>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="205" data-page-name="Services">
+                        @(servicesElements?["workflowStep5Text"]?.DefaultValue
+                            ?? "Ürün tam sürümle piyasaya çıktıktan sonra güncellemeler yaparak...")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(servicesElements?["workflowStep5Text"]?.DefaultValue
+                            ?? "Ürün tam sürümle piyasaya çıktıktan sonra güncellemeler yaparak...")
+                    </p>
+                }
+        </div>
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="206" data-page-name="Services"
+                     src="@(imageElements?["workflowStep5Image"]?.DefaultValue ?? "/images/update.webp")"
+                     alt="Güncelleme Görseli" />
+            }
+            else
+            {
+                <img src="@(imageElements?["workflowStep5Image"]?.DefaultValue ?? "/images/update.webp")"
+                     alt="Güncelleme Görseli" />
+            }
+    </div>
+</div>
+</div>
+
+
+
+<div class="footer-bottom">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="207" data-page-name="Services"
+                     src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+            else
+            {
+                <img src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+        </div>
+
+        <!-- Bağlantı Sütunları -->
+        <div class="footer-links">
+
+            <!-- KURUMSAL -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="208" data-page-name="Services">
+                        @(servicesElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(servicesElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+
+                <ul>
+                    <!-- Hakkımızda -->
+                    <li><a asp-controller="Home" asp-action="About">Hakkımızda</a></li>
+
+                    <!-- "Politikalarımız" yerine Çalışanlar -->
+                    <li><a asp-controller="Home" asp-action="Employees">Çalışanlar</a></li>
+
+                    <!-- "Kariyer" yerine Hizmetlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Services">Hizmetlerimiz</a></li>
+
+                    <!-- Referanslar -->
+                    <li><a asp-controller="Home" asp-action="References">Referanslar</a></li>
+
+                    <!-- "Blog" yerine Ürünlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Products">Ürünlerimiz</a></li>
+                    <li><a asp-controller="Home" asp-action="Iletisim">İletişim</a></li>
+                </ul>
+            </div>
+
+            <!-- YAZILIM ÇÖZÜMLERİ -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="209" data-page-name="Services">
+                        @(servicesElements?["footerYazilimCozumleriTitle"]?.DefaultValue
+                            ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(servicesElements?["footerYazilimCozumleriTitle"]?.DefaultValue
+                            ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                <ul>
+                    <!-- FORIPS Suite -->
+                    <li><a href="/Home/Products#forips-suite">FORIPS Suite</a></li>
+                    <!-- DeskFor -->
+                    <li><a href="/Home/Products#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+                    <!-- DOKU -->
+                    <li><a href="/Home/Products#doku">DOKU</a></li>
+                    <!-- ELDOK -->
+                    <li><a href="/Home/Products#eldok">ELDOK</a></li>
+                </ul>
+            </div>
+
+            <!-- SİSTEM ÇÖZÜMLERİ KALDIRILDI,
+                 İSTEK ÜZERİNE TEK SÜTUN GİTTİ -->
+            <!-- İLETİŞİM -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="210" data-page-name="Services">
+                        @(servicesElements?["footerIletisimTitle"]?.DefaultValue
+                            ?? "İletişim")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(servicesElements?["footerIletisimTitle"]?.DefaultValue
+                            ?? "İletişim")
+                    </h3>
+                }
+
+                <ul>
+                    <li><a href="mailto:info@forte.com.tr">info@forte.com.tr</a></li>
+                    <li><a href="tel:03124734083">0312 473 40 83</a></li>
+                    <li><a href="tel:03124734086">0312 473 40 86</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-logos">
+            <a href="https://www.linkedin.com/company/forte-teknoloji/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <img src="/images/link13.png" alt="LinkedIn" />
+            </a>
+            <a href="https://x.com/forte_teknoloji" target="_blank" rel="noopener noreferrer">
+                <img src="/images/x1.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCj48ONm5KMQZXUSsMZIFo3w" target="_blank" rel="noopener noreferrer">
+                <img src="/images/youtube1.png" alt="YouTube" />
+            </a>
+        </div>
+    </div>
+</div>

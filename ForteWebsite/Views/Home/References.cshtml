@@ -1,0 +1,778 @@
+﻿@{
+    var referencesElements = ViewBag.ReferencesElements as Dictionary<string, SiteElement>;
+}
+@{
+    var imageElements = referencesElements?
+        .Where(e => e.Value.ElementType == "image")
+        .ToDictionary(e => e.Key, e => e.Value);
+}
+ @if (User?.Identity?.IsAuthenticated == true)
+        {
+<div data-editable="true" data-element-id="108" data-page-name="References" class="referanslar">
+    @(referencesElements?["referanslarTitle"]?.DefaultValue ?? "Referanslar")
+</div>
+        }
+        else
+        {
+    <div class="referanslar">
+        @(referencesElements?["referanslarTitle"]?.DefaultValue ?? "Referanslar")
+    </div>
+        }
+
+<div class="projects">
+    <div class="project">
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <h3 data-editable="true" data-element-id="109" data-page-name="References">
+                @(referencesElements?["project1Title"]?.DefaultValue
+                    ?? "MBS Modernizasyonu Projesi")
+            </h3>
+        }
+        else
+        {
+            <h3>
+                @(referencesElements?["project1Title"]?.DefaultValue
+                    ?? "MBS Modernizasyonu Projesi")
+            </h3>
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <img data-editable="true" data-element-id="110" data-page-name="References"
+                 src="@(imageElements?["project1Image"]?.DefaultValue ?? "/images/logo100.png")"
+                 alt="MBS Logo" />
+        }
+        else
+        {
+            <img src="@(imageElements?["project1Image"]?.DefaultValue ?? "/images/logo100.png")"
+                 alt="MBS Logo" />
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <p data-editable="true" data-element-id="111" data-page-name="References">
+                @(referencesElements?["project1Description"]?.DefaultValue
+                    ?? "Millî Savunma Bakanlığı tarafından...")
+            </p>
+        }
+        else
+        {
+            <p>
+                @(referencesElements?["project1Description"]?.DefaultValue
+                    ?? "Millî Savunma Bakanlığı tarafından...")
+            </p>
+        }
+    </div>
+    <div class="project">
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <h3 data-editable="true" data-element-id="112" data-page-name="References">
+                @(referencesElements?["project2Title"]?.DefaultValue
+                    ?? "KKBS-AY Projesi")
+            </h3>
+        }
+        else
+        {
+            <h3>
+                @(referencesElements?["project2Title"]?.DefaultValue
+                    ?? "KKBS-AY Projesi")
+            </h3>
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <img data-editable="true" data-element-id="113" data-page-name="References"
+                 src="@(imageElements?["project2Image"]?.DefaultValue ?? "/images/path-to-image2.png")"
+                 alt="KKBS Logo" />
+        }
+        else
+        {
+            <img src="@(imageElements?["project2Image"]?.DefaultValue ?? "/images/path-to-image2.png")"
+                 alt="KKBS Logo" />
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <p data-editable="true" data-element-id="114" data-page-name="References">
+                @(referencesElements?["project2Description"]?.DefaultValue
+                    ?? "Kara Kuvvetleri Komutanlığı tarafından kullanılan yazılımlara...")
+            </p>
+        }
+        else
+        {
+            <p>
+                @(referencesElements?["project2Description"]?.DefaultValue
+                    ?? "Kara Kuvvetleri Komutanlığı tarafından kullanılan yazılımlara...")
+            </p>
+        }
+    </div>
+    <div class="project">
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <h3 data-editable="true" data-element-id="115" data-page-name="References">
+                @(referencesElements?["project3Title"]?.DefaultValue
+                    ?? "LBS-YBS Projesi")
+            </h3>
+        }
+        else
+        {
+            <h3>
+                @(referencesElements?["project3Title"]?.DefaultValue
+                    ?? "LBS-YBS Projesi")
+            </h3>
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <img data-editable="true" data-element-id="116" data-page-name="References"
+                 src="@(imageElements?["project3Image"]?.DefaultValue ?? "/images/path-to-image3.png")"
+                 alt="LBS Logo" />
+        }
+        else
+        {
+            <img src="@(imageElements?["project3Image"]?.DefaultValue ?? "/images/path-to-image3.png")"
+                 alt="LBS Logo" />
+        }
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <p data-editable="true" data-element-id="117" data-page-name="References">
+                @(referencesElements?["project3Description"]?.DefaultValue
+                    ?? "Kara Kuvvetleri Komutanlığı ile Millî Savunma Bakanlığı...")
+            </p>
+        }
+        else
+        {
+            <p>
+                @(referencesElements?["project3Description"]?.DefaultValue
+                    ?? "Kara Kuvvetleri Komutanlığı ile Millî Savunma Bakanlığı...")
+            </p>
+        }
+    </div>
+</div>
+
+<div class="projects-section">
+    @if (User?.Identity?.IsAuthenticated == true)
+    {
+        <h2 data-editable="true" data-element-id="118" data-page-name="References">
+            @(referencesElements?["projectsSectionTitle"]?.DefaultValue
+                ?? "Bazı Projelerimiz")
+        </h2>
+    }
+    else
+    {
+        <h2>
+            @(referencesElements?["projectsSectionTitle"]?.DefaultValue
+                ?? "Bazı Projelerimiz")
+        </h2>
+    }
+    <div class="projects-grid">
+    <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="119" data-page-name="References"
+                     src="@(imageElements?["projectCard1Image"]?.DefaultValue ?? "/images/aa1.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard1Image"]?.DefaultValue ?? "/images/aa1.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="120" data-page-name="References">
+                    @(referencesElements?["projectCard1Title"]?.DefaultValue
+                        ?? "Anadolu Ajansı Yazılım Tabanlı Geniş Alan Ağı")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard1Title"]?.DefaultValue
+                        ?? "Anadolu Ajansı Yazılım Tabanlı Geniş Alan Ağı")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="121" data-page-name="References">
+                    @(referencesElements?["projectCard1Description"]?.DefaultValue
+                        ?? "Anadolu Ajansı Genel Müdürlüğü ve bölge/büro ofislerinde...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard1Description"]?.DefaultValue
+                        ?? "Anadolu Ajansı Genel Müdürlüğü ve bölge/büro ofislerinde...")
+                </p>
+            }
+    </div>
+    <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="122" data-page-name="References"
+                     src="@(imageElements?["projectCard2Image"]?.DefaultValue ?? "/images/aa2.png")"
+                     alt="Adalet Bakanlığı" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard2Image"]?.DefaultValue ?? "/images/aa2.png")"
+                     alt="Adalet Bakanlığı" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="123" data-page-name="References">
+                    @(referencesElements?["projectCard2Title"]?.DefaultValue
+                        ?? "T.C. Adalet Bakanlığı Ulusal Yargı Ağı Sunucu Sistemleri")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard2Title"]?.DefaultValue
+                        ?? "T.C. Adalet Bakanlığı Ulusal Yargı Ağı Sunucu Sistemleri")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="124" data-page-name="References">
+                    @(referencesElements?["projectCard2Description"]?.DefaultValue
+                        ?? "T.C. Adalet Bakanlığı Bilgi İşlem Genel Müdürlüğü’nün...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard2Description"]?.DefaultValue
+                        ?? "T.C. Adalet Bakanlığı Bilgi İşlem Genel Müdürlüğü’nün...")
+                </p>
+            }
+    </div>
+    <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="125" data-page-name="References"
+                     src="@(imageElements?["projectCard3Image"]?.DefaultValue ?? "/images/aa3.png")"
+                     alt="MEB" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard3Image"]?.DefaultValue ?? "/images/aa3.png")"
+                     alt="MEB" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="126" data-page-name="References">
+                    @(referencesElements?["projectCard3Title"]?.DefaultValue
+                        ?? "T.C. Milli Eğitim Bakanlığı Güvenli Okullar ve Uzaktan Eğitim Projesi")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard3Title"]?.DefaultValue
+                        ?? "T.C. Milli Eğitim Bakanlığı Güvenli Okullar ve Uzaktan Eğitim Projesi")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="127" data-page-name="References">
+                    @(referencesElements?["projectCard3Description"]?.DefaultValue
+                        ?? "Dünya Bankası Güvenli Okullar ve Uzaktan Eğitim Projesi...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard3Description"]?.DefaultValue
+                        ?? "Dünya Bankası Güvenli Okullar ve Uzaktan Eğitim Projesi...")
+                </p>
+            }
+    </div>
+    <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="128" data-page-name="References"
+                     src="@(imageElements?["projectCard4Image"]?.DefaultValue ?? "/images/aa4.png")"
+                     alt="OGM" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard4Image"]?.DefaultValue ?? "/images/aa4.png")"
+                     alt="OGM" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="129" data-page-name="References">
+                    @(referencesElements?["projectCard4Title"]?.DefaultValue
+                        ?? "Orman Genel Müdürlüğü (OGM) Sistem Çözümleri")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard4Title"]?.DefaultValue
+                        ?? "Orman Genel Müdürlüğü (OGM) Sistem Çözümleri")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="130" data-page-name="References">
+                    @(referencesElements?["projectCard4Description"]?.DefaultValue
+                        ?? "OGM’nin ihtiyacı olan Sanallaştırma Yazılımı Lisansı...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard4Description"]?.DefaultValue
+                        ?? "OGM’nin ihtiyacı olan Sanallaştırma Yazılımı Lisansı...")
+                </p>
+            }
+    </div>
+    <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="131" data-page-name="References"
+                     src="@(imageElements?["projectCard5Image"]?.DefaultValue ?? "/images/aa5.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard5Image"]?.DefaultValue ?? "/images/aa5.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="132" data-page-name="References">
+                    @(referencesElements?["projectCard5Title"]?.DefaultValue
+                        ?? "Vakıflar Genel Müdürlüğü (VGM) Bilişim Altyapısı İyileştirilmesi")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard5Title"]?.DefaultValue
+                        ?? "Vakıflar Genel Müdürlüğü (VGM) Bilişim Altyapısı İyileştirilmesi")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="133" data-page-name="References">
+                    @(referencesElements?["projectCard5Description"]?.DefaultValue
+                        ?? "VGM’nin bilgi işlem altyapısının iyileştirilmesi projesi kapsamında...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard5Description"]?.DefaultValue
+                        ?? "VGM’nin bilgi işlem altyapısının iyileştirilmesi projesi kapsamında...")
+                </p>
+            }
+    </div>
+    <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="134" data-page-name="References"
+                     src="@(imageElements?["projectCard6Image"]?.DefaultValue ?? "/images/aa6.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard6Image"]?.DefaultValue ?? "/images/aa6.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="135" data-page-name="References">
+                    @(referencesElements?["projectCard6Title"]?.DefaultValue
+                        ?? "Radyo ve Televizyon Üst Kurulu (RTÜK) Bilişim Malzemeleri")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard6Title"]?.DefaultValue
+                        ?? "Radyo ve Televizyon Üst Kurulu (RTÜK) Bilişim Malzemeleri")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="136" data-page-name="References">
+                    @(referencesElements?["projectCard6Description"]?.DefaultValue
+                        ?? "Radyo ve Televizyon Üst Kurulu Bilgi Teknolojileri Dairesi Başkanlığı’nın...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard6Description"]?.DefaultValue
+                        ?? "Radyo ve Televizyon Üst Kurulu Bilgi Teknolojileri Dairesi Başkanlığı’nın...")
+                </p>
+            }
+    </div>
+    <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="137" data-page-name="References"
+                     src="@(imageElements?["projectCard7Image"]?.DefaultValue ?? "/images/aa7.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard7Image"]?.DefaultValue ?? "/images/aa7.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="138" data-page-name="References">
+                    @(referencesElements?["projectCard7Title"]?.DefaultValue
+                        ?? "Devlet Su İşleri (DSİ) Genel Müdürlüğü")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard7Title"]?.DefaultValue
+                        ?? "Devlet Su İşleri (DSİ) Genel Müdürlüğü")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="139" data-page-name="References">
+                    @(referencesElements?["projectCard7Description"]?.DefaultValue
+                        ?? "DSİ Genel Müdürlüğü Teknoloji Dairesi Başkanlığı’nın Veri Depolama...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard7Description"]?.DefaultValue
+                        ?? "DSİ Genel Müdürlüğü Teknoloji Dairesi Başkanlığı’nın Veri Depolama...")
+                </p>
+            }
+    </div>
+    <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="140" data-page-name="References"
+                     src="@(imageElements?["projectCard8Image"]?.DefaultValue ?? "/images/aa8.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard8Image"]?.DefaultValue ?? "/images/aa8.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="141" data-page-name="References">
+                    @(referencesElements?["projectCard8Title"]?.DefaultValue
+                        ?? "T.C.Enerji ve Tabii Kaynaklar Bakanlığı IP Telefon Altyapısı")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard8Title"]?.DefaultValue
+                        ?? "T.C.Enerji ve Tabii Kaynaklar Bakanlığı IP Telefon Altyapısı")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="142" data-page-name="References">
+                    @(referencesElements?["projectCard8Description"]?.DefaultValue
+                        ?? "Bakanlık ve tüm bağlı kurumları (TEDAŞ, BOTAŞ, MTA...)")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard8Description"]?.DefaultValue
+                        ?? "Bakanlık ve tüm bağlı kurumları (TEDAŞ, BOTAŞ, MTA...)")
+                </p>
+            }
+    </div>
+     <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="143" data-page-name="References"
+                     src="@(imageElements?["projectCard9Image"]?.DefaultValue ?? "/images/aa9.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard9Image"]?.DefaultValue ?? "/images/aa9.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="144" data-page-name="References">
+                    @(referencesElements?["projectCard9Title"]?.DefaultValue
+                        ?? "T.C.Enerji ve Tabii Kaynaklar Bakanlığı Video Konferans Sistemleri Entegrasyonu")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard9Title"]?.DefaultValue
+                        ?? "T.C.Enerji ve Tabii Kaynaklar Bakanlığı Video Konferans Sistemleri Entegrasyonu")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="145" data-page-name="References">
+                    @(referencesElements?["projectCard9Description"]?.DefaultValue
+                        ?? "Bakanlık ve tüm bağlı kurumları (TEDAŞ, BOTAŞ, MTA...)")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard9Description"]?.DefaultValue
+                        ?? "Bakanlık ve tüm bağlı kurumları (TEDAŞ, BOTAŞ, MTA...)")
+                </p>
+            }
+    </div>
+     <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="146" data-page-name="References"
+                     src="@(imageElements?["projectCard10Image"]?.DefaultValue ?? "/images/aa10.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard10Image"]?.DefaultValue ?? "/images/aa10.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="147" data-page-name="References">
+                    @(referencesElements?["projectCard10Title"]?.DefaultValue
+                        ?? "T.C.Enerji ve Tabii Kaynaklar Bakanlığı CCTV Altyapısı ve Güvenlik Sistemleri")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard10Title"]?.DefaultValue
+                        ?? "T.C.Enerji ve Tabii Kaynaklar Bakanlığı CCTV Altyapısı ve Güvenlik Sistemleri")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="148" data-page-name="References">
+                    @(referencesElements?["projectCard10Description"]?.DefaultValue
+                        ?? "Bakanlık merkez kampüsü ve kampüsteki tüm bağlı kurumlarının IP kamera...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard10Description"]?.DefaultValue
+                        ?? "Bakanlık merkez kampüsü ve kampüsteki tüm bağlı kurumlarının IP kamera...")
+                </p>
+            }
+    </div>
+     <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="149" data-page-name="References"
+                     src="@(imageElements?["projectCard11Image"]?.DefaultValue ?? "/images/aa11.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard11Image"]?.DefaultValue ?? "/images/aa11.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="150" data-page-name="References">
+                    @(referencesElements?["projectCard11Title"]?.DefaultValue
+                        ?? "Roketsan A.Ş. Veri Depolama Ünitesi Tedariki Projesi")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard11Title"]?.DefaultValue
+                        ?? "Roketsan A.Ş. Veri Depolama Ünitesi Tedariki Projesi")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="151" data-page-name="References">
+                    @(referencesElements?["projectCard11Description"]?.DefaultValue
+                        ?? "Roketsan, bilgi işlem altyapısı için temin edilen Veri Depolama Ünitesinin...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard11Description"]?.DefaultValue
+                        ?? "Roketsan, bilgi işlem altyapısı için temin edilen Veri Depolama Ünitesinin...")
+                </p>
+            }
+        </div>
+        <div class="project-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="152" data-page-name="References"
+                     src="@(imageElements?["projectCard12Image"]?.DefaultValue ?? "/images/aa12.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            else
+            {
+                <img src="@(imageElements?["projectCard12Image"]?.DefaultValue ?? "/images/aa12.png")"
+                     alt="Anadolu Ajansı" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="153" data-page-name="References">
+                    @(referencesElements?["projectCard12Title"]?.DefaultValue
+                        ?? "T.C. Kültür ve Turizm Bakanlığı Lisans Güncelleştirme ve Bakım Onarım Hizmeti")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(referencesElements?["projectCard12Title"]?.DefaultValue
+                        ?? "T.C. Kültür ve Turizm Bakanlığı Lisans Güncelleştirme ve Bakım Onarım Hizmeti")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="154" data-page-name="References">
+                    @(referencesElements?["projectCard12Description"]?.DefaultValue
+                        ?? "Kültür ve Turizm Bakanlığı Merkez Teşkilatı Birimlerinin...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(referencesElements?["projectCard12Description"]?.DefaultValue
+                        ?? "Kültür ve Turizm Bakanlığı Merkez Teşkilatı Birimlerinin...")
+                </p>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="155" data-page-name="References"
+                     src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+            else
+            {
+                <img src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+        </div>
+
+        <!-- Bağlantı Sütunları -->
+        <div class="footer-links">
+
+            <!-- KURUMSAL -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="156" data-page-name="References">
+                        @(referencesElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(referencesElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                <ul>
+                    <!-- Hakkımızda -->
+                    <li><a asp-controller="Home" asp-action="About">Hakkımızda</a></li>
+
+                    <!-- "Politikalarımız" yerine Çalışanlar -->
+                    <li><a asp-controller="Home" asp-action="Employees">Çalışanlar</a></li>
+
+                    <!-- "Kariyer" yerine Hizmetlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Services">Hizmetlerimiz</a></li>
+
+                    <!-- Referanslar -->
+                    <li><a asp-controller="Home" asp-action="References">Referanslar</a></li>
+
+                    <!-- "Blog" yerine Ürünlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Products">Ürünlerimiz</a></li>
+                    <li><a asp-controller="Home" asp-action="Iletisim">İletişim</a></li>
+                </ul>
+            </div>
+
+            <!-- YAZILIM ÇÖZÜMLERİ -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="157" data-page-name="References">
+                        @(referencesElements?["footerYazilimCozumleriTitle"]?.DefaultValue
+                            ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(referencesElements?["footerYazilimCozumleriTitle"]?.DefaultValue
+                            ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                <ul>
+                    <!-- FORIPS Suite -->
+                    <li><a href="/Home/Products#forips-suite">FORIPS Suite</a></li>
+                    <!-- DeskFor -->
+                    <li><a href="/Home/Products#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+                    <!-- DOKU -->
+                    <li><a href="/Home/Products#doku">DOKU</a></li>
+                    <!-- ELDOK -->
+                    <li><a href="/Home/Products#eldok">ELDOK</a></li>
+                </ul>
+            </div>
+
+            <!-- SİSTEM ÇÖZÜMLERİ KALDIRILDI,
+                 İSTEK ÜZERİNE TEK SÜTUN GİTTİ -->
+            <!-- İLETİŞİM -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="158" data-page-name="References">
+                        @(referencesElements?["footerIletisimTitle"]?.DefaultValue ?? "İletişim")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(referencesElements?["footerIletisimTitle"]?.DefaultValue ?? "İletişim")
+                    </h3>
+                }
+                <ul>
+                    <li><a href="mailto:info@forte.com.tr">info@forte.com.tr</a></li>
+                    <li><a href="tel:03124734083">0312 473 40 83</a></li>
+                    <li><a href="tel:03124734086">0312 473 40 86</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-logos">
+            <a href="https://www.linkedin.com/company/forte-teknoloji/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <img src="/images/link13.png" alt="LinkedIn" />
+            </a>
+            <a href="https://x.com/forte_teknoloji" target="_blank" rel="noopener noreferrer">
+                <img src="/images/x1.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCj48ONm5KMQZXUSsMZIFo3w" target="_blank" rel="noopener noreferrer">
+                <img src="/images/youtube1.png" alt="YouTube" />
+            </a>
+        </div>
+    </div>
+</div>
+
+

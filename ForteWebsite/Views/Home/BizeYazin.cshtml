@@ -1,0 +1,165 @@
+﻿<div class="hero-banner-iletisim">
+    <h1>Bize Ulaşın</h1>
+</div>
+
+<div class="simple-nav">
+    <a href="/Home/Iletisim" class="contact-button">Adres ve Telefonlar</a>
+    <a href="/Home/BizeYazin" class="nav-link active">Bize Yazın</a>
+    @if (User.IsInRole("Admin"))
+    {
+        <a href="@Url.Action("GelenFormlar", "Home")" class="contact-button">
+            Gelen Formlar
+        </a>
+    }
+</div>
+
+
+
+<div class="contact-form-container">
+    <form method="post" action="/Home/BizeYazin">
+        <!-- Ad ve Soyad -->
+        @if (ViewData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                @ViewData["SuccessMessage"]
+            </div>
+        }
+        @if (ViewData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                @ViewData["ErrorMessage"]
+            </div>
+        }
+        <div class="form-group">
+            <label for="name">Adınız*</label>
+            <input type="text" id="name" name="Name" placeholder="Adınız" required>
+        </div>
+        <div class="form-group">
+            <label for="surname">Soyadınız*</label>
+            <input type="text" id="surname" name="Surname" placeholder="Soyadınız" required>
+        </div>
+
+        <!-- Şirket ve Ünvan -->
+        <div class="form-group">
+            <label for="company">Şirketiniz</label>
+            <input type="text" id="company" name="Company" placeholder="Şirketiniz">
+        </div>
+        <div class="form-group">
+            <label for="title">Ünvanınız*</label>
+            <input type="text" id="title" name="Title" placeholder="Ünvanınız" required>
+        </div>
+
+        <!-- Ülke ve E-posta -->
+        <div class="form-group">
+            <label for="country">Ülke*</label>
+            <select id="country" name="Country" required>
+                <option value="">Ülke Seçin</option>
+                <option value="TR">Türkiye</option>
+                <option value="US">Amerika</option>
+                <option value="DE">Almanya</option>
+                <!-- Daha fazla ülke ekleyebilirsiniz -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="email">E-posta adresiniz*</label>
+            <input type="email" id="email" name="Email" placeholder="E-posta adresiniz" required>
+        </div>
+
+        <!-- Telefon -->
+        <div class="form-group single-line">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="Phone" placeholder="Telefon numaranız">
+        </div>
+
+        <!-- Mesaj -->
+        <div class="form-group single-line">
+            <label for="message">Mesajınız*</label>
+            <textarea id="message" name="Message" rows="1" placeholder="Mesajınızı yazın" required></textarea>
+        </div>
+
+        <!-- Onay Kutuları -->
+        <!-- Onay Kutuları -->
+        <div class="form-group full-width-lower">
+            <div class="check-group">
+                <div>
+                    <input type="checkbox" id="privacy" name="PrivacyAccepted" value="true" required>
+                    <label for="privacy">
+                        Kişisel verilerin işlenmesi ile ilgili
+                        <a href="/aydinlatma-metni" class="link">aydınlatma metnini</a> okudum.*
+                    </label>
+                </div>
+            </div>
+            <div class="check-group">
+                <div>
+                    <input type="checkbox" id="consent" name="ConsentAccepted" value="true" required>
+                    <label for="consent">Kişisel verilerimin işlenmesini kabul ediyorum.*</label>
+                </div>
+            </div>
+            <!-- Gönder butonu da aynı blokta, en altta -->
+            <button type="submit" class="submit-button">Gönder</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+<div class="footer-bottom">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            <img src="/images/logo.png" alt="Forte Logo">
+        </div>
+
+        <!-- Bağlantı Sütunları -->
+        <div class="footer-links">
+            <!-- KURUMSAL -->
+            <div class="link-column">
+                <h3>Kurumsal</h3>
+                <ul>
+                    <li><a href="/Home/About">Hakkımızda</a></li>
+                    <li><a href="/Home/Employees">Çalışanlar</a></li>
+                    <li><a href="/Home/Services">Hizmetlerimiz</a></li>
+                    <li><a href="/Home/References">Referanslar</a></li>
+                    <li><a href="/Home/Products">Ürünlerimiz</a></li>
+                    <li><a asp-controller="Home" asp-action="Iletisim">İletişim</a></li>
+                </ul>
+            </div>
+
+            <!-- YAZILIM ÇÖZÜMLERİ -->
+            <div class="link-column">
+                <h3>Yazılım Çözümleri</h3>
+                <ul>
+                    <li><a href="/Home/Products#forips-suite">FORIPS Suite</a></li>
+                    <li><a href="/Home/Products#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+                    <li><a href="/Home/Products#doku">DOKU</a></li>
+                    <li><a href="/Home/Products#eldok">ELDOK</a></li>
+                </ul>
+            </div>
+
+            <!-- İLETİŞİM -->
+            <div class="link-column">
+                <h3>İletişim</h3>
+                <ul>
+                    <li><a href="mailto:info@forte.com.tr">info@forte.com.tr</a></li>
+                    <li><a href="tel:03124734083">0312 473 40 83</a></li>
+                    <li><a href="tel:03124734086">0312 473 40 86</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-logos">
+            <a href="https://www.linkedin.com/company/forte-teknoloji/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <img src="/images/link13.png" alt="LinkedIn" />
+            </a>
+            <a href="https://x.com/forte_teknoloji" target="_blank" rel="noopener noreferrer">
+                <img src="/images/x1.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCj48ONm5KMQZXUSsMZIFo3w" target="_blank" rel="noopener noreferrer">
+                <img src="/images/youtube1.png" alt="YouTube" />
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,493 @@
+﻿@{
+    var productsElements = ViewBag.ProductsElements as Dictionary<string, SiteElement>;
+}
+@{
+    var imageElements = productsElements?
+        .Where(e => e.Value.ElementType == "image")
+        .ToDictionary(e => e.Key, e => e.Value);
+}
+
+
+
+@* Products.cshtml *@
+<div class="forips-suite-page">
+    <!-- Navigation Tabs -->
+    <nav class="navigation-tabs">
+        <ul>
+            <li><a href="#forips-suite">FORIPS Suite</a></li>
+            <li><a href="#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+            <li><a href="#doku">DOKU Malzeme Kodlandırma</a></li>
+            <li><a href="#eldok">ELDOK Elektronik Dokümantasyon</a></li>
+        </ul>
+    </nav>
+
+    <!-- FORIPS SUITE Section -->
+    <section id="forips-suite" class="content-section">
+        <div class="content">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h2 data-editable="true" data-element-id="211" data-page-name="Products">
+                    @(productsElements?["foripsSuiteHeading"]?.DefaultValue ?? "FORIPS Suite")
+                </h2>
+            }
+            else
+            {
+                <h2>
+                    @(productsElements?["foripsSuiteHeading"]?.DefaultValue ?? "FORIPS Suite")
+                </h2>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="212" data-page-name="Products">
+                    @(productsElements?["foripsSuiteText"]?.DefaultValue
+                        ?? "FORIPS Suite, uluslararası S-Serisi spesifikasyonlarına uygun...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(productsElements?["foripsSuiteText"]?.DefaultValue
+                        ?? "FORIPS Suite, uluslararası S-Serisi spesifikasyonlarına uygun...")
+                </p>
+            }
+            <ul>
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="213" data-page-name="Products">
+                        @(productsElements?["foripsSuiteBullet1"]?.DefaultValue
+                            ?? "FORSDOC (S1000D uyumlu teknik doküman...)")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["foripsSuiteBullet1"]?.DefaultValue
+                            ?? "FORSDOC (S1000D uyumlu teknik doküman...)")
+                    </li>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="214" data-page-name="Products">
+                        @(productsElements?["foripsSuiteBullet2"]?.DefaultValue
+                            ?? "FORSMM (S2000M uyumlu malzeme yönetimi)")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["foripsSuiteBullet2"]?.DefaultValue
+                            ?? "FORSMM (S2000M uyumlu malzeme yönetimi)")
+                    </li>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="215" data-page-name="Products">
+                        @(productsElements?["foripsSuiteBullet3"]?.DefaultValue
+                            ?? "FORSPLAN (SX000i uyumlu ürün destek süreç yönetimi)")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["foripsSuiteBullet3"]?.DefaultValue
+                            ?? "FORSPLAN (SX000i uyumlu ürün destek süreç yönetimi)")
+                    </li>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="216" data-page-name="Products">
+                        @(productsElements?["foripsSuiteBullet4"]?.DefaultValue
+                            ?? "FORSLSAR (S3000L lojistik destek analizleri)")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["foripsSuiteBullet4"]?.DefaultValue
+                            ?? "FORSLSAR (S3000L lojistik destek analizleri)")
+                    </li>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="217" data-page-name="Products">
+                        @(productsElements?["foripsSuiteBullet5"]?.DefaultValue
+                            ?? "FORMAINTENANCE (S4000P bakım optimizasyonu)")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["foripsSuiteBullet5"]?.DefaultValue
+                            ?? "FORMAINTENANCE (S4000P bakım optimizasyonu)")
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="image">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="218" data-page-name="Products"
+                     src="@(imageElements?["foripsSuiteImage"]?.DefaultValue ?? "/images/laptop-image.webp")"
+                     alt="FORIPS Suite Görseli" />
+            }
+            else
+            {
+                <img src="@(imageElements?["foripsSuiteImage"]?.DefaultValue ?? "/images/laptop-image.webp")"
+                     alt="FORIPS Suite Görseli" />
+            }
+        </div>
+    </section>
+
+    <!-- DESKFOR Section -->
+    <section id="deskfor" class="content-section">
+        <div class="image">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="219" data-page-name="Products"
+                     src="@(imageElements?["deskforImage"]?.DefaultValue ?? "/images/deskfor-logo.webp")"
+                     alt="DeskFor Main Görseli" />
+            }
+            else
+            {
+                <img src="@(imageElements?["deskforImage"]?.DefaultValue ?? "/images/deskfor-logo.webp")"
+                     alt="DeskFor Main Görseli" />
+            }
+        </div>
+        <div class="content">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h2 data-editable="true" data-element-id="220" data-page-name="Products">
+                    @(productsElements?["deskforHeading"]?.DefaultValue
+                        ?? "DeskFor Serisi Ürün Ailesi")
+                </h2>
+            }
+            else
+            {
+                <h2>
+                    @(productsElements?["deskforHeading"]?.DefaultValue
+                        ?? "DeskFor Serisi Ürün Ailesi")
+                </h2>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="221" data-page-name="Products">
+                    @(productsElements?["deskforText"]?.DefaultValue
+                        ?? "DeskFor Serisi, küçük ve orta büyüklükteki işletmelerin (KOBİ) proje...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(productsElements?["deskforText"]?.DefaultValue
+                        ?? "DeskFor Serisi, küçük ve orta büyüklükteki işletmelerin (KOBİ) proje...")
+                </p>
+            }
+            <ul>
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="222" data-page-name="Products">
+                        @(productsElements?["deskforBullet1"]?.DefaultValue
+                            ?? "Kullanıcı dostu arayüzü ile işletmelerin otomasyona geçmesini kolaylaştırır.")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["deskforBullet1"]?.DefaultValue
+                            ?? "Kullanıcı dostu arayüzü ile işletmelerin otomasyona geçmesini kolaylaştırır.")
+                    </li>
+                }
+
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="223" data-page-name="Products">
+                        @(productsElements?["deskforBullet2"]?.DefaultValue
+                            ?? "Bulut ve on-premise seçenekleri ile farklı gereksinimlere uygundur.")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["deskforBullet2"]?.DefaultValue
+                            ?? "Bulut ve on-premise seçenekleri ile farklı gereksinimlere uygundur.")
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+
+    <!-- DOKU Section -->
+    <section id="doku" class="content-section">
+        <div class="content">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h2 data-editable="true" data-element-id="224" data-page-name="Products">
+                    @(productsElements?["dokuHeading"]?.DefaultValue
+                        ?? "DOKU Malzeme Kodlandırma")
+                </h2>
+            }
+            else
+            {
+                <h2>
+                    @(productsElements?["dokuHeading"]?.DefaultValue
+                        ?? "DOKU Malzeme Kodlandırma")
+                </h2>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="225" data-page-name="Products">
+                    @(productsElements?["dokuText"]?.DefaultValue
+                        ?? "DOKU, NATO Kodlandırma Sistemi ve bu sistemin temellerini barındıran...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(productsElements?["dokuText"]?.DefaultValue
+                        ?? "DOKU, NATO Kodlandırma Sistemi ve bu sistemin temellerini barındıran...")
+                </p>
+            }
+
+            <ul>
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="226" data-page-name="Products">
+                        @(productsElements?["dokuBullet1"]?.DefaultValue
+                            ?? "Ulusal Kodlandırma Büroları, kullanıcılar ve yüklenicilerin görev tanımlarına uygun...")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["dokuBullet1"]?.DefaultValue
+                            ?? "Ulusal Kodlandırma Büroları, kullanıcılar ve yüklenicilerin görev tanımlarına uygun...")
+                    </li>
+                }
+
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="227" data-page-name="Products">
+                        @(productsElements?["dokuBullet2"]?.DefaultValue
+                            ?? "NATO (NSPA) ile gerçekleştirilen NADEX ve NDER testlerini...")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["dokuBullet2"]?.DefaultValue
+                            ?? "NATO (NSPA) ile gerçekleştirilen NADEX ve NDER testlerini...")
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="image">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="228" data-page-name="Products"
+                     src="@(imageElements?["dokuImage"]?.DefaultValue ?? "/images/doku-logo.webp")"
+                     alt="DOKU Görseli" />
+            }
+            else
+            {
+                <img src="@(imageElements?["dokuImage"]?.DefaultValue ?? "/images/doku-logo.webp")"
+                     alt="DOKU Görseli" />
+            }
+        </div>
+    </section>
+
+    <!-- ELDOK Section -->
+    <section id="eldok" class="content-section">
+        <div class="image">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="229" data-page-name="Products"
+                     src="@(imageElements?["eldokImage"]?.DefaultValue ?? "/images/eldok-logo.webp")"
+                     alt="ELDOK Görseli" />
+            }
+            else
+            {
+                <img src="@(imageElements?["eldokImage"]?.DefaultValue ?? "/images/eldok-logo.webp")"
+                     alt="ELDOK Görseli" />
+            }
+        </div>
+        <div class="content">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h2 data-editable="true" data-element-id="230" data-page-name="Products">
+                    @(productsElements?["eldokHeading"]?.DefaultValue
+                        ?? "ELDOK Elektronik Dokümantasyon")
+                </h2>
+            }
+            else
+            {
+                <h2>
+                    @(productsElements?["eldokHeading"]?.DefaultValue
+                        ?? "ELDOK Elektronik Dokümantasyon")
+                </h2>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="231" data-page-name="Products">
+                    @(productsElements?["eldokText"]?.DefaultValue
+                        ?? "ELDOK, kurumsal dokümanların XML tabanlı modüler şekilde...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(productsElements?["eldokText"]?.DefaultValue
+                        ?? "ELDOK, kurumsal dokümanların XML tabanlı modüler şekilde...")
+                </p>
+            }
+
+            <ul>
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="232" data-page-name="Products">
+                        @(productsElements?["eldokBullet1"]?.DefaultValue
+                            ?? "Elektronik dokümantasyon yönetimini kolaylaştırır.")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["eldokBullet1"]?.DefaultValue
+                            ?? "Elektronik dokümantasyon yönetimini kolaylaştırır.")
+                    </li>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <li data-editable="true" data-element-id="233" data-page-name="Products">
+                        @(productsElements?["eldokBullet2"]?.DefaultValue
+                            ?? "İş süreçleri ve dokümanları entegre ederek verimlilik sağlar.")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @(productsElements?["eldokBullet2"]?.DefaultValue
+                            ?? "İş süreçleri ve dokümanları entegre ederek verimlilik sağlar.")
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+</div>
+
+
+<div class="footer-bottom">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true" data-element-id="234" data-page-name="Products"
+                     src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+            else
+            {
+                <img src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+        </div>
+
+        <!-- Bağlantı Sütunları -->
+        <div class="footer-links">
+
+            <!-- KURUMSAL -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="235" data-page-name="Products">
+                        @(productsElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(productsElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                <ul>
+                    <!-- Hakkımızda -->
+                    <li><a asp-controller="Home" asp-action="About">Hakkımızda</a></li>
+
+                    <!-- "Politikalarımız" yerine Çalışanlar -->
+                    <li><a asp-controller="Home" asp-action="Employees">Çalışanlar</a></li>
+
+                    <!-- "Kariyer" yerine Hizmetlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Services">Hizmetlerimiz</a></li>
+
+                    <!-- Referanslar -->
+                    <li><a asp-controller="Home" asp-action="References">Referanslar</a></li>
+
+                    <!-- "Blog" yerine Ürünlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Products">Ürünlerimiz</a></li>
+                    <li><a asp-controller="Home" asp-action="Iletisim">İletişim</a></li>
+                </ul>
+            </div>
+
+            <!-- YAZILIM ÇÖZÜMLERİ -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="236" data-page-name="Products">
+                        @(productsElements?["footerYazilimCozumleriTitle"]?.DefaultValue
+                            ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(productsElements?["footerYazilimCozumleriTitle"]?.DefaultValue
+                            ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                <ul>
+                    <!-- FORIPS Suite -->
+                    <li><a href="/Home/Products#forips-suite">FORIPS Suite</a></li>
+                    <!-- DeskFor -->
+                    <li><a href="/Home/Products#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+                    <!-- DOKU -->
+                    <li><a href="/Home/Products#doku">DOKU</a></li>
+                    <!-- ELDOK -->
+                    <li><a href="/Home/Products#eldok">ELDOK</a></li>
+                </ul>
+            </div>
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="237" data-page-name="Products">
+                        @(productsElements?["footerIletisimTitle"]?.DefaultValue
+                            ?? "İletişim")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(productsElements?["footerIletisimTitle"]?.DefaultValue
+                            ?? "İletişim")
+                    </h3>
+                }
+                <ul>
+                    <li><a href="mailto:info@forte.com.tr">info@forte.com.tr</a></li>
+                    <li><a href="tel:03124734083">0312 473 40 83</a></li>
+                    <li><a href="tel:03124734086">0312 473 40 86</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-logos">
+            <a href="https://www.linkedin.com/company/forte-teknoloji/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <img src="/images/link13.png" alt="LinkedIn" />
+            </a>
+            <a href="https://x.com/forte_teknoloji" target="_blank" rel="noopener noreferrer">
+                <img src="/images/x1.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCj48ONm5KMQZXUSsMZIFo3w" target="_blank" rel="noopener noreferrer">
+                <img src="/images/youtube1.png" alt="YouTube" />
+            </a>
+        </div>
+    </div>
+</div>

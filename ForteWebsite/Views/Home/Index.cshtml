@@ -1,0 +1,1000 @@
+﻿@{
+    var homeElements = ViewBag.HomeElements as Dictionary<string, SiteElement>;
+}
+@{
+    var imageElements = (ViewBag.HomeElements as Dictionary<string, SiteElement>)?
+    .Where(e => e.Value.ElementType == "image")
+    .ToDictionary(e => e.Key, e => e.Value);
+}
+<div class="hero-image">
+    <div class="custom-section">
+        <h2 class="custom-title">
+            <!-- customTitle -->
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <span data-editable="true"
+                data-element-id="3"
+                data-page-name="Home">
+                    @(homeElements?["customTitle"]?.DefaultValue ?? "Uçtan uca çözüm ortağınız")
+                </span>
+            }
+            else
+            {
+                <span>
+                    @(homeElements?["customTitle"]?.DefaultValue ?? "Uçtan uca çözüm ortağınız")
+                </span>
+            }
+            <span> </span>
+            <!-- brandName -->
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <span data-editable="true"
+                data-element-id="4"
+                data-page-name="Home">
+                    @(homeElements?["brandName"]?.DefaultValue ?? "Forte")
+                </span>
+            }
+            else
+            {
+                <span>
+                    @(homeElements?["brandName"]?.DefaultValue ?? "Forte")
+                </span>
+            }
+        </h2>
+
+        @if (User?.Identity?.IsAuthenticated == true)
+        {
+            <p class="custom-text editable"
+            data-editable="true"
+            data-element-key="introText"
+            data-page-name="Home"
+            data-element-id="1">
+                @(homeElements?["introText"]?.DefaultValue ?? "Varsayılan metin")
+            </p>
+        }
+        else
+        {
+            <p class="custom-text editable">
+                @(homeElements?["introText"]?.DefaultValue ?? "Varsayılan metin")
+            </p>
+        }
+
+    </div>
+    @if (User?.Identity?.IsAuthenticated == true)
+    {
+        <img class="img-fluid w-100 editable"
+        style="height: 1000px; object-fit: cover;"
+        data-editable="true"
+        data-element-key="heroimage1"
+        data-page-name="Home"
+        data-element-id="2"
+        src="@(imageElements?["heroimage1"]?.DefaultValue ?? "/images/yeni_resminiz.jpg")"
+        alt="Hero Image" />
+    }
+    else
+    {
+        <img class="img-fluid w-100 editable"
+        style="height: 1000px; object-fit: cover;"
+        src="@(imageElements?["heroimage1"]?.DefaultValue ?? "/images/yeni_resminiz.jpg")"
+        alt="Hero Image" />
+    }
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="site.js"></script>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="site.js"></script>
+</body>
+<script src="site.js"></script>
+
+
+<div class="products-section">
+
+    @if (User?.Identity?.IsAuthenticated == true)
+    {
+        <h2 class="custom-text editable"
+        data-editable="true"
+        data-element-id="5"
+        data-page-name="Home">
+            @(homeElements?["productsSectionTitle"]?.DefaultValue ?? "Ürünlerimiz")
+        </h2>
+    }
+    else
+    {
+        <h2 class="custom-text editable">
+            @(homeElements?["productsSectionTitle"]?.DefaultValue ?? "Ürünlerimiz")
+        </h2>
+    }
+    <div class="products-container">
+
+        <!-- FORIPS Suite -->
+        <div class="product-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img class="editable"
+                data-editable="true"
+                data-element-id="7"
+                data-page-name="Home"
+                src="@(imageElements?["foripsImage"]?.DefaultValue ?? "/images/forips.png")"
+                alt="Hero Image" />
+            }
+            else
+            {
+                <img src="@(imageElements?["foripsImage"]?.DefaultValue ?? "/images/forips.png")"
+                alt="Hero Image" class="editable" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="6" data-page-name="Home">@(homeElements?["foripsTitle"]?.DefaultValue ?? "FORIPS Suite")</h3>
+            }
+            else 
+            {
+                <h3>@(homeElements?["foripsTitle"]?.DefaultValue ?? "FORIPS Suite")</h3>
+            }
+
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="8" data-page-name="Home">
+                    @(homeElements?["foripsDescription"]?.DefaultValue
+                        ?? "Uluslararası S-Serisi spesifikasyonlarına uygun olarak entegre ürün destek...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(homeElements?["foripsDescription"]?.DefaultValue
+                        ?? "Uluslararası S-Serisi spesifikasyonlarına uygun olarak entegre ürün destek...")
+                </p>
+            }
+            <a href="/Home/Products#forips-suite">Daha fazla bilgi için →</a>
+        </div>
+
+        <!-- DeskFor -->
+        <div class="product-card">
+             @if (User?.Identity?.IsAuthenticated == true)
+    {
+        <img src="@(imageElements?["deskforImage"]?.DefaultValue ?? "/images/deskfor.png")"
+             alt="Hero"
+             data-editable="true"
+             data-element-id="9"
+             data-page-name="Home" />
+    }
+    else
+    {
+        <img src="@(imageElements?["deskforImage"]?.DefaultValue ?? "/images/deskfor.png")"
+             alt="Hero" />
+    }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-page-name="Home" data-element-id="10">
+                    @(homeElements?["deskforTitle"]?.DefaultValue ?? "DeskFor Serisi")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(homeElements?["deskforTitle"]?.DefaultValue ?? "DeskFor Serisi")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="11" data-page-name="Home">
+                    @(homeElements?["deskforDescription"]?.DefaultValue
+                        ?? "Proje Yönetimi, Servis Yönetimi, Fırsat Yönetimi...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(homeElements?["deskforDescription"]?.DefaultValue
+                        ?? "Proje Yönetimi, Servis Yönetimi, Fırsat Yönetimi...")
+                </p>
+            }
+            <a href="/Home/Products#deskfor">Daha fazla bilgi için →</a>
+        </div>
+
+        <!-- DOKU -->
+        <div class="product-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img src="@(imageElements?["dokuImage"]?.DefaultValue ?? "/images/doku.png")"
+                     alt="Hero"
+                     data-editable="true"
+                     data-element-id="12"
+                     data-page-name="Home" />
+            }
+            else
+            {
+                <img src="@(imageElements?["dokuImage"]?.DefaultValue ?? "/images/doku.png")"
+                     alt="Hero" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="13" data-page-name="Home">
+                    @(homeElements?["dokuTitle"]?.DefaultValue ?? "DOKU")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(homeElements?["dokuTitle"]?.DefaultValue ?? "DOKU")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="14" data-page-name="Home">
+                    @(homeElements?["dokuDescription"]?.DefaultValue
+                        ?? "NATO ACodP-1 standartlarına uygun olarak malzeme kodlandırma...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(homeElements?["dokuDescription"]?.DefaultValue
+                        ?? "NATO ACodP-1 standartlarına uygun olarak malzeme kodlandırma...")
+                </p>
+            }
+            <a href="/Home/Products#doku">Daha fazla bilgi için →</a>
+        </div>
+
+        <!-- ELDOK -->
+        <div class="product-card">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img src="@(imageElements?["eldokImage"]?.DefaultValue ?? "/images/eldok.png")"
+                     alt="Hero"
+                     data-editable="true"
+                     data-element-id="15"
+                     data-page-name="Home" />
+            }
+            else
+            {
+                <img src="@(imageElements?["eldokImage"]?.DefaultValue ?? "/images/eldok.png")"
+                     alt="Hero" />
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="16" data-page-name="Home">
+                    @(homeElements?["eldokTitle"]?.DefaultValue ?? "ELDOK")
+                </h3>
+            }
+            else
+            {
+                <h3>
+                    @(homeElements?["eldokTitle"]?.DefaultValue ?? "ELDOK")
+                </h3>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="17" data-page-name="Home">
+                    @(homeElements?["eldokDescription"]?.DefaultValue
+                        ?? "Kurumsal dokümanların XML yapısında modüler tutulularak...")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(homeElements?["eldokDescription"]?.DefaultValue
+                        ?? "Kurumsal dokümanların XML yapısında modüler tutulularak...")
+                </p>
+            }
+            <a href="/Home/Products#eldok">Daha fazla bilgi için →</a>
+        </div>
+    </div>
+</div>
+
+<div class="services-section">
+    @if (User?.Identity?.IsAuthenticated == true)
+    {
+        <h2 data-editable="true" data-element-id="18" data-page-name="Home">
+            @(homeElements?["servicesSectionTitle"]?.DefaultValue ?? "Hizmetlerimiz")
+        </h2>
+    }
+    else
+    {
+        <h2>
+            @(homeElements?["servicesSectionTitle"]?.DefaultValue ?? "Hizmetlerimiz")
+        </h2>
+    }
+    <div class="services-container">
+        <div class="service-card">
+             <a asp-controller="Home" asp-action="Services" style="text-decoration: none; color: inherit; display: block;">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img src="@(imageElements?["service1Image"]?.DefaultValue ?? "/images/service1.png")"
+                         alt="Hero"
+                         data-editable="true"
+                         data-element-id="19"
+                         data-page-name="Home" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["service1Image"]?.DefaultValue ?? "/images/service1.png")"
+                         alt="Hero" />
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="20" data-page-name="Home">
+                        @(homeElements?["service1Title"]?.DefaultValue ?? "Yazılım Geliştirme")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(homeElements?["service1Title"]?.DefaultValue ?? "Yazılım Geliştirme")
+                    </h3>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="21" data-page-name="Home">
+                        @(homeElements?["service1Description"]?.DefaultValue
+                            ?? "İş süreçlerinizi analiz edip optimizasyonunu sağlıyor...")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(homeElements?["service1Description"]?.DefaultValue
+                            ?? "İş süreçlerinizi analiz edip optimizasyonunu sağlıyor...")
+                    </p>
+                }
+            </a>
+        </div>
+        <div class="service-card">
+             <a asp-controller="Home" asp-action="Services" style="text-decoration: none; color: inherit; display: block;">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img src="@(imageElements?["service2Image"]?.DefaultValue ?? "/images/service2.png")"
+                         alt="Hero"
+                         data-editable="true"
+                         data-element-id="22"
+                         data-page-name="Home" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["service2Image"]?.DefaultValue ?? "/images/service2.png")"
+                         alt="Hero" />
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="23" data-page-name="Home">
+                        @(homeElements?["service2Title"]?.DefaultValue ?? "Altyapı ve Sistem Entegrasyonu")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(homeElements?["service2Title"]?.DefaultValue ?? "Altyapı ve Sistem Entegrasyonu")
+                    </h3>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="24" data-page-name="Home">
+                        @(homeElements?["service2Description"]?.DefaultValue
+                            ?? "Bilgi sistem mimarinizi ihtiyaçlarınıza uygun olarak tasarlıyor...")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(homeElements?["service2Description"]?.DefaultValue
+                            ?? "Bilgi sistem mimarinizi ihtiyaçlarınıza uygun olarak tasarlıyor...")
+                    </p>
+                }
+            </a>
+        </div>
+        <div class="service-card">
+             <a asp-controller="Home" asp-action="Services" style="text-decoration: none; color: inherit; display: block;">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img src="@(imageElements?["service3Image"]?.DefaultValue ?? "/images/service3.png")"
+                         alt="Hizmet 3"
+                         data-editable="true"
+                         data-element-id="25"
+                         data-page-name="Home" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["service3Image"]?.DefaultValue ?? "/images/service3.png")"
+                         alt="Hizmet 3" />
+                }
+
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="26" data-page-name="Home">
+                        @(homeElements?["service3Title"]?.DefaultValue ?? "Teknik Dokümantasyon Yazarlığı")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(homeElements?["service3Title"]?.DefaultValue ?? "Teknik Dokümantasyon Yazarlığı")
+                    </h3>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="27" data-page-name="Home">
+                        @(homeElements?["service3Description"]?.DefaultValue
+                            ?? "Teknik dokümantasyon ihtiyacınızı S1000D ve yasal gerekliliklere...")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(homeElements?["service3Description"]?.DefaultValue
+                            ?? "Teknik dokümantasyon ihtiyacınızı S1000D ve yasal gerekliliklere...")
+                    </p>
+                }
+            </a>
+        </div>
+        <div class="service-card">
+             <a asp-controller="Home" asp-action="Services" style="text-decoration: none; color: inherit; display: block;">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img src="@(imageElements?["service4Image"]?.DefaultValue ?? "/images/service4.png")"
+                         alt="Hizmet 4"
+                         data-editable="true"
+                         data-element-id="28"
+                         data-page-name="Home" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["service4Image"]?.DefaultValue ?? "/images/service4.png")"
+                         alt="Hizmet 4" />
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="29" data-page-name="Home">
+                        @(homeElements?["service4Title"]?.DefaultValue ?? "Malzeme Kodlandırma")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(homeElements?["service4Title"]?.DefaultValue ?? "Malzeme Kodlandırma")
+                    </h3>
+                }
+
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="30" data-page-name="Home">
+                        @(homeElements?["service4Description"]?.DefaultValue
+                            ?? "MSB Kodlandırma Bürosu tarafından kullanılan ve HAVELSAN tarafından geliştirilmiş...")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(homeElements?["service4Description"]?.DefaultValue
+                            ?? "MSB Kodlandırma Bürosu tarafından kullanılan ve HAVELSAN tarafından geliştirilmiş...")
+                    </p>
+                }
+            </a>
+        </div>
+        <div class="service-card">
+             <a asp-controller="Home" asp-action="Services" style="text-decoration: none; color: inherit; display: block;">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img src="@(imageElements?["service5Image"]?.DefaultValue ?? "/images/service5.png")"
+                         alt="Hizmet 5"
+                         data-editable="true"
+                         data-element-id="31"
+                         data-page-name="Home" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["service5Image"]?.DefaultValue ?? "/images/service5.png")"
+                         alt="Hizmet 5" />
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="32" data-page-name="Home">
+                        @(homeElements?["service5Title"]?.DefaultValue ?? "Teknik Hizmet")
+                    </h3>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="33" data-page-name="Home">
+                        @(homeElements?["service5Description"]?.DefaultValue
+                            ?? "Altyapı ve sisteminizin kurulumunu, periyodik kontrolünü...")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(homeElements?["service5Description"]?.DefaultValue
+                            ?? "Altyapı ve sisteminizin kurulumunu, periyodik kontrolünü...")
+                    </p>
+                }
+            </a>
+        </div>
+        <div class="service-card">
+             <a asp-controller="Home" asp-action="Services" style="text-decoration: none; color: inherit; display: block;">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img src="@(imageElements?["service6Image"]?.DefaultValue ?? "/images/service6.png")"
+                         alt="Hizmet 6"
+                         data-editable="true"
+                         data-element-id="34"
+                         data-page-name="Home" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["service6Image"]?.DefaultValue ?? "/images/service6.png")"
+                         alt="Hizmet 6" />
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="35" data-page-name="Home">
+                        @(homeElements?["service6Title"]?.DefaultValue
+                            ?? "Teknoloji ve Savunma Danışmanlığı")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(homeElements?["service6Title"]?.DefaultValue
+                            ?? "Teknoloji ve Savunma Danışmanlığı")
+                    </h3>
+                }
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p data-editable="true" data-element-id="36" data-page-name="Home">
+                        @(homeElements?["service6Description"]?.DefaultValue
+                            ?? "Uzman ve profesyonel kadromuz ile bilgi teknolojileri...")
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @(homeElements?["service6Description"]?.DefaultValue
+                            ?? "Uzman ve profesyonel kadromuz ile bilgi teknolojileri...")
+                    </p>
+                }
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- =======================
+     SAYILARLA FORTE BÖLÜMÜ
+======================= -->
+<div class="forte-stats">
+    @if (User?.Identity?.IsAuthenticated == true)
+    {
+        <h2 data-editable="true" data-element-id="37" data-page-name="Home">
+            @Html.Raw(homeElements?["forteStatsTitle"]?.DefaultValue ?? "Sayılarla <span class=\"forte-highlight\">FORTE</span>")
+        </h2>
+    }
+    else
+    {
+        <h2>
+            @Html.Raw(homeElements?["forteStatsTitle"]?.DefaultValue ?? "Sayılarla <span class=\"forte-highlight\">FORTE</span>")
+        </h2>
+    }
+    <div class="map-container">
+        <div class="map-background">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true"
+                     data-element-id="38"
+                     data-page-name="Home"
+                     src="@(homeElements?["mapImage"]?.DefaultValue ?? "/images/path-to-your-map-image.jpg")"
+                     alt="World Map" />
+            }
+            else
+            {
+                <img src="@(homeElements?["mapImage"]?.DefaultValue ?? "/images/path-to-your-map-image.jpg")"
+                     alt="World Map" />
+            }
+        </div>
+
+        <div class="stat-item stat-left">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="39" data-page-name="Home">
+                    @(homeElements?["projectsLabel"]?.DefaultValue ?? "Proje Sayısı")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(homeElements?["projectsLabel"]?.DefaultValue ?? "Proje Sayısı")
+                </p>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="40" data-page-name="Home"
+                    id="count-projects"
+                    data-target="@(homeElements?["projectsCount"]?.DefaultValue ?? "1953")">
+                    0
+                </h3>
+            }
+            else
+            {
+                <h3 id="count-projects" data-target="@(homeElements?["projectsCount"]?.DefaultValue ?? "1953")">
+                    0
+                </h3>
+            }
+        </div>
+        <div class="stat-item stat-center">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="41" data-page-name="Home">
+                    @(homeElements?["linesLabel"]?.DefaultValue ?? "Kod Satır Sayısı")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(homeElements?["linesLabel"]?.DefaultValue ?? "Kod Satır Sayısı")
+                </p>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="42" data-page-name="Home"
+                    id="count-lines"
+                    data-target="@(homeElements?["linesCount"]?.DefaultValue ?? "122897665")">
+                    0
+                </h3>
+            }
+            else
+            {
+                <h3 id="count-lines" data-target="@(homeElements?["linesCount"]?.DefaultValue ?? "122897665")">
+                    0
+                </h3>
+            }
+        </div>
+        <div class="stat-item stat-right">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <p data-editable="true" data-element-id="43" data-page-name="Home">
+                    @(homeElements?["docsLabel"]?.DefaultValue ?? "Doküman Sayısı")
+                </p>
+            }
+            else
+            {
+                <p>
+                    @(homeElements?["docsLabel"]?.DefaultValue ?? "Doküman Sayısı")
+                </p>
+            }
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <h3 data-editable="true" data-element-id="44" data-page-name="Home"
+                    id="count-docs"
+                    data-target="@(homeElements?["docsCount"]?.DefaultValue ?? "125648")">
+                    0
+                </h3>
+            }
+            else
+            {
+                <h3 id="count-docs" data-target="@(homeElements?["docsCount"]?.DefaultValue ?? "125648")">
+                    0
+                </h3>
+            }
+        </div>
+    </div>
+</div>
+
+
+<section class="partners-section">
+    @if (User?.Identity?.IsAuthenticated == true)
+    {
+        <h2 data-editable="true" data-element-id="45" data-page-name="Home">
+            @(homeElements?["partnersSectionTitle"]?.DefaultValue ?? "Çözüm Ortaklarımız")
+        </h2>
+    }
+    else
+    {
+        <h2>
+            @(homeElements?["partnersSectionTitle"]?.DefaultValue ?? "Çözüm Ortaklarımız")
+        </h2>
+    }
+  <div class="partners-grid">
+        <div class="partner-logo">
+            <a href="https://www.oracle.com/" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="46" data-page-name="Home"
+                         src="@(imageElements?["partner1Image"]?.DefaultValue ?? "/images/logo13.png")"
+                         alt="Oracle" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner1Image"]?.DefaultValue ?? "/images/logo13.png")"
+                         alt="Oracle" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.microsoft.com/" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="47" data-page-name="Home"
+                         src="@(imageElements?["partner2Image"]?.DefaultValue ?? "/images/logo14.png")"
+                         alt="Microsoft" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner2Image"]?.DefaultValue ?? "/images/logo14.png")"
+                         alt="Microsoft" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.trendmicro.com" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="48" data-page-name="Home"
+                         src="@(imageElements?["partner3Image"]?.DefaultValue ?? "/images/logo3.png")"
+                         alt="Trend Micro" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner3Image"]?.DefaultValue ?? "/images/logo3.png")"
+                         alt="Trend Micro" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.fortinet.com/" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="49" data-page-name="Home"
+                         src="@(imageElements?["partner4Image"]?.DefaultValue ?? "/images/logo4.png")"
+                         alt="Fortinet" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner4Image"]?.DefaultValue ?? "/images/logo4.png")"
+                         alt="Fortinet" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.paloaltonetworks.com/" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="50" data-page-name="Home"
+                         src="@(imageElements?["partner5Image"]?.DefaultValue ?? "/images/logo9.png")"
+                         alt="Palo Alto" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner5Image"]?.DefaultValue ?? "/images/logo9.png")"
+                         alt="Palo Alto" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.softwareag.com/en_corporate.html" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="51" data-page-name="Home"
+                         src="@(imageElements?["partner6Image"]?.DefaultValue ?? "/images/logo7.png")"
+                         alt="Lexmark" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner6Image"]?.DefaultValue ?? "/images/logo7.png")"
+                         alt="Lexmark" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.veeam.com/" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="52" data-page-name="Home"
+                         src="@(imageElements?["partner7Image"]?.DefaultValue ?? "/images/logo8.png")"
+                         alt="Dell Technologies" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner7Image"]?.DefaultValue ?? "/images/logo8.png")"
+                         alt="Dell Technologies" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.lexmark.com/" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="53" data-page-name="Home"
+                         src="@(imageElements?["partner8Image"]?.DefaultValue ?? "/images/logo10.png")"
+                         alt="Hewlett Packard" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner8Image"]?.DefaultValue ?? "/images/logo10.png")"
+                         alt="Hewlett Packard" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.vmware.com/" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="54" data-page-name="Home"
+                         src="@(imageElements?["partner9Image"]?.DefaultValue ?? "/images/logo6.png")"
+                         alt="VMware" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner9Image"]?.DefaultValue ?? "/images/logo6.png")"
+                         alt="VMware" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.extremenetworks.com/" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="55" data-page-name="Home"
+                         src="@(imageElements?["partner10Image"]?.DefaultValue ?? "/images/logo5.png")"
+                         alt="ExtraHop" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner10Image"]?.DefaultValue ?? "/images/logo5.png")"
+                         alt="ExtraHop" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.dell.com/tr-tr" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="56" data-page-name="Home"
+                         src="@(imageElements?["partner11Image"]?.DefaultValue ?? "/images/logo11.png")"
+                         alt="VMware" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner11Image"]?.DefaultValue ?? "/images/logo11.png")"
+                         alt="VMware" />
+                }
+            </a>
+        </div>
+        <div class="partner-logo">
+            <a href="https://www.hpe.com/tr/en/home.html" target="_blank">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <img data-editable="true" data-element-id="57" data-page-name="Home"
+                         src="@(imageElements?["partner12Image"]?.DefaultValue ?? "/images/logo12.png")"
+                         alt="Ssoftware" />
+                }
+                else
+                {
+                    <img src="@(imageElements?["partner12Image"]?.DefaultValue ?? "/images/logo12.png")"
+                         alt="Ssoftware" />
+                }
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="footer-bottom">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <img data-editable="true"
+                     data-element-id="58"
+                     data-page-name="Home"
+                     src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+            else
+            {
+                <img src="@(imageElements?["footerLogoImage"]?.DefaultValue ?? "/images/logo.png")"
+                     alt="Forte Logo" />
+            }
+        </div>
+
+        <!-- Bağlantı Sütunları -->
+        <div class="footer-links">
+
+            <!-- KURUMSAL -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="59" data-page-name="Home">
+                        @(homeElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(homeElements?["footerKurumsalTitle"]?.DefaultValue ?? "Kurumsal")
+                    </h3>
+                }
+                <ul>
+                    <!-- Hakkımızda -->
+                    <li><a asp-controller="Home" asp-action="About">Hakkımızda</a></li>
+
+                    <!-- "Politikalarımız" yerine Çalışanlar -->
+                    <li><a asp-controller="Home" asp-action="Employees">Çalışanlar</a></li>
+
+                    <!-- "Kariyer" yerine Hizmetlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Services">Hizmetlerimiz</a></li>
+
+                    <!-- Referanslar -->
+                    <li><a asp-controller="Home" asp-action="References">Referanslar</a></li>
+
+                    <!-- "Blog" yerine Ürünlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Products">Ürünlerimiz</a></li>
+                    <li><a asp-controller="Home" asp-action="Iletisim">İletişim</a></li>
+                </ul>
+            </div>
+
+            <!-- YAZILIM ÇÖZÜMLERİ -->
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="60" data-page-name="Home">
+                        @(homeElements?["footerYazilimCozumleriTitle"]?.DefaultValue ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(homeElements?["footerYazilimCozumleriTitle"]?.DefaultValue ?? "Yazılım Çözümleri")
+                    </h3>
+                }
+                <ul>
+                    <!-- FORIPS Suite -->
+                    <li><a href="/Home/Products#forips-suite">FORIPS Suite</a></li>
+                    <!-- DeskFor -->
+                    <li><a href="/Home/Products#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+                    <!-- DOKU -->
+                    <li><a href="/Home/Products#doku">DOKU</a></li>
+                    <!-- ELDOK -->
+                    <li><a href="/Home/Products#eldok">ELDOK</a></li>
+                </ul>
+            </div>
+
+            <div class="link-column">
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <h3 data-editable="true" data-element-id="61" data-page-name="Home">
+                        @(homeElements?["footerIletisimTitle"]?.DefaultValue ?? "İletişim")
+                    </h3>
+                }
+                else
+                {
+                    <h3>
+                        @(homeElements?["footerIletisimTitle"]?.DefaultValue ?? "İletişim")
+                    </h3>
+                }
+                <ul>
+                    <li><a href="mailto:info@forte.com.tr">info@forte.com.tr</a></li>
+                    <li><a href="tel:03124734083">0312 473 40 83</a></li>
+                    <li><a href="tel:03124734086">0312 473 40 86</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-logos">
+            <a href="https://www.linkedin.com/company/forte-teknoloji/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <img src="/images/link13.png" alt="LinkedIn" />
+            </a>
+            <a href="https://x.com/forte_teknoloji" target="_blank" rel="noopener noreferrer">
+                <img src="/images/x1.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCj48ONm5KMQZXUSsMZIFo3w" target="_blank" rel="noopener noreferrer">
+                <img src="/images/youtube1.png" alt="YouTube" />
+            </a>
+        </div>
+    </div>
+</div>
+
+

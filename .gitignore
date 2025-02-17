@@ -1,6 +1,7 @@
 # Visual Studio ile ilgili klasörler
 bin/
 obj/
+.vs/
 
 # Kullanıcı ve geçici dosyalar
 *.user

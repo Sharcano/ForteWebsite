@@ -1,0 +1,121 @@
+﻿<div class="hero-banner-iletisim">
+    <h1>İletişim</h1>
+</div>
+
+@{
+    ViewData["Title"] = "İletişim";
+}
+
+<div class="contact-buttons">
+    <!-- Bu kez "Adres ve Telefonlar" linkini aktif göstermek istiyoruz. -->
+    <a href="/Home/Iletisim" class="contact-button active">Adres ve Telefonlar</a>
+    <a href="/Home/BizeYazin" class="contact-button">Bize Yazın</a>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <a href="@Url.Action("GelenFormlar", "Home")" class="contact-button">
+            Gelen Formlar
+        </a>
+    }
+</div>
+
+<!-- İletişim sayfasının içeriği (adres bilgileri vb.) -->
+
+
+<div class="contact-columns">
+    <div class="address-section">
+        <!-- Merkez Ofis -->
+        <div class="office-card">
+            <h3>Merkez Ofis</h3>
+            <p>
+                Mustafa Kemal Mahallesi<br>
+                2123.Cadde Cepa Sitesi<br>
+                Alışveriş Merkezi No:2/501<br>
+                Çankaya/ANKARA
+            </p>
+            <p>📞 0312 123 45 67</p>
+        </div>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.489430530645!2d32.7760644!3d39.9097015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d345f608b575d7%3A0xd0ebc2f9d49b8e72!2sForte%20Teknoloji!5e0!3m2!1str!2str!4v1623333333333!5m2!1str!2str"
+                class="map-iframe"
+                allowfullscreen=""
+                loading="lazy">
+        </iframe>
+
+        <!-- Hacettepe Teknokent Ofis -->
+        <div class="office-card">
+            <h3>Hacettepe Teknokent Ofis</h3>
+            <p>
+                Hacettepe Teknokent<br>
+                5.Ar-Ge Binası No:9<br>
+                Beytepe/Çankaya/ANKARA
+            </p>
+            <p>📞 0312 987 65 43</p>
+        </div>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.362951525234!2d32.7362948!3d39.8626959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34fd3daefc8e9%3A0xf57b163516bc2f72!2sForte%20Teknoloji%20Hacettepe%20%C5%9Eube!5e0!3m2!1str!2str!4v1623333333333!5m2!1str!2str"
+                class="map-iframe"
+                allowfullscreen=""
+                loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            <img src="/images/logo.png" alt="Forte Logo">
+        </div>
+
+        <!-- Bağlantı Sütunları -->
+        <div class="footer-links">
+
+            <!-- KURUMSAL -->
+            <div class="link-column">
+                <h3>Kurumsal</h3>
+                <ul>
+                    <li><a href="/Home/About">Hakkımızda</a></li>
+                    <li><a href="/Home/Employees">Çalışanlar</a></li>
+                    <li><a href="/Home/Services">Hizmetlerimiz</a></li>
+                    <li><a href="/Home/References">Referanslar</a></li>
+                    <li><a href="/Home/Products">Ürünlerimiz</a></li>
+                    <li><a asp-controller="Home" asp-action="Iletisim">İletişim</a></li>
+                </ul>
+            </div>
+
+            <!-- YAZILIM ÇÖZÜMLERİ -->
+            <div class="link-column">
+                <h3>Yazılım Çözümleri</h3>
+                <ul>
+                    <li><a href="/Home/Products#forips-suite">FORIPS Suite</a></li>
+                    <li><a href="/Home/Products#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+                    <li><a href="/Home/Products#doku">DOKU</a></li>
+                    <li><a href="/Home/Products#eldok">ELDOK</a></li>
+                </ul>
+            </div>
+
+            <!-- İLETİŞİM -->
+            <div class="link-column">
+                <h3>İletişim</h3>
+                <ul>
+                    <li><a href="mailto:info@forte.com.tr">info@forte.com.tr</a></li>
+                    <li><a href="tel:03124734083">0312 473 40 83</a></li>
+                    <li><a href="tel:03124734086">0312 473 40 86</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-logos">
+            <a href="https://www.linkedin.com/company/forte-teknoloji/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <img src="/images/link13.png" alt="LinkedIn" />
+            </a>
+            <a href="https://x.com/forte_teknoloji" target="_blank" rel="noopener noreferrer">
+                <img src="/images/x1.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCj48ONm5KMQZXUSsMZIFo3w" target="_blank" rel="noopener noreferrer">
+                <img src="/images/youtube1.png" alt="YouTube" />
+            </a>
+        </div>
+    </div>
+</div>

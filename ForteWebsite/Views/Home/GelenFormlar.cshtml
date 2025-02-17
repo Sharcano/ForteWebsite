@@ -1,0 +1,104 @@
+﻿<div class="hero-banner-iletisim">
+    <h1>Gelen Formlar</h1>
+</div>
+
+
+<div class="contact-buttons d-flex justify-content-center my-3">
+    <a href="@Url.Action("Iletisim", "Home")" class="contact-button">
+        Adres ve Telefonlar
+    </a>
+    <a href="@Url.Action("BizeYazin", "Home")" class="contact-button">
+        Bize Yazın
+    </a>
+    <a href="@Url.Action("GelenFormlar", "Home")" class="contact-button active">
+        Gelen Formlar
+    </a>
+</div>
+
+
+
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Ünvan</th>
+            <th>E-posta</th>
+            <th>Telefon</th>
+            <th>Mesaj</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var form in Model)
+        {
+            <tr>
+                <td>@form.Name</td>
+                <td>@form.Surname</td>
+                <td>@form.Title</td>
+                <td>@form.Email</td>
+                <td>@form.Phone</td>
+                <td>@form.Message</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="footer-bottom">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            <img src="/images/logo.png" alt="Forte Logo">
+        </div>
+
+        <!-- Bağlantı Sütunları -->
+        <div class="footer-links">
+
+            <!-- KURUMSAL -->
+            <div class="link-column">
+                <h3>Kurumsal</h3>
+                <ul>
+                    <li><a href="/Home/About">Hakkımızda</a></li>
+                    <li><a href="/Home/Employees">Çalışanlar</a></li>
+                    <li><a href="/Home/Services">Hizmetlerimiz</a></li>
+                    <li><a href="/Home/References">Referanslar</a></li>
+                    <li><a href="/Home/Products">Ürünlerimiz</a></li>
+                    <li><a asp-controller="Home" asp-action="Iletisim">İletişim</a></li>
+                </ul>
+            </div>
+
+            <!-- YAZILIM ÇÖZÜMLERİ -->
+            <div class="link-column">
+                <h3>Yazılım Çözümleri</h3>
+                <ul>
+                    <li><a href="/Home/Products#forips-suite">FORIPS Suite</a></li>
+                    <li><a href="/Home/Products#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+                    <li><a href="/Home/Products#doku">DOKU</a></li>
+                    <li><a href="/Home/Products#eldok">ELDOK</a></li>
+                </ul>
+            </div>
+
+            <!-- İLETİŞİM -->
+            <div class="link-column">
+                <h3>İletişim</h3>
+                <ul>
+                    <li><a href="mailto:info@forte.com.tr">info@forte.com.tr</a></li>
+                    <li><a href="tel:03124734083">0312 473 40 83</a></li>
+                    <li><a href="tel:03124734086">0312 473 40 86</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-logos">
+            <a href="https://www.linkedin.com/company/forte-teknoloji/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <img src="/images/link13.png" alt="LinkedIn" />
+            </a>
+            <a href="https://x.com/forte_teknoloji" target="_blank" rel="noopener noreferrer">
+                <img src="/images/x1.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCj48ONm5KMQZXUSsMZIFo3w" target="_blank" rel="noopener noreferrer">
+                <img src="/images/youtube1.png" alt="YouTube" />
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ForteWebsite</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ForteWebsite.styles.css" asp-append-version="true" />
+</head>
+@{
+    // Aksiyon adını bulalım
+    var actionName = ViewContext.RouteData.Values["Action"]?.ToString();
+    // Varsayılan olarak class boş kalsın
+    string bodyClass = "";
+
+    // Eğer action "Index" veya "About" ise "home-page" ekliyoruz
+    if (actionName == "Index" || actionName == "About")
+    {
+        bodyClass = "home-page";
+    }
+}
+<body class="@bodyClass">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light box-shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="/images/logo2.png" alt="Forte" height="50" />
+                </a>
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between"
+                     id="navbarSupportedContent">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="About">
+                                Hakkımızda
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="References">
+                                Referanslar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Employees">
+                                Çalışanlar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Services">
+                                Hizmetlerimiz
+                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Products">
+                                Ürünlerimiz
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Iletisim">
+                                İletişim
+                            </a>
+                        </li>
+                    </ul>
+                   @*  <ul class="navbar-nav">
+                        @if (User?.Identity?.IsAuthenticated == true)
+                        {
+                            <!-- Log Out Butonu -->
+                            <li class="nav-item">
+                                <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
+                                    <button type="submit" class="nav-link btn btn-outline-primary">Log Out</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <!-- Sign In Butonu -->
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-primary" asp-controller="Home" asp-action="SignIn">Sign In</a>
+                            </li>
+                        }
+                    </ul> *@
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid px-0">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer-bottom">
+        <div class="container">
+            &copy; 2025 - ForteWebsite
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+<script>
+    // Giriş yapıldığında tetikle
+    @if (Context.Session.GetString("IsLoggedIn") == "true")
+    {
+        <text>
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userRole', '@Context.Session.GetString("UserRole")');
+        </text>
+    }
+    // Çıkış yapıldığında temizle
+    document.getElementById('logoutButton').addEventListener('click', function() {
+        localStorage.clear();
+    });
+</script>

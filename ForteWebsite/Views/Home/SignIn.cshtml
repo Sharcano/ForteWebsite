@@ -1,0 +1,117 @@
+﻿<div class="hero-banner-iletisim">
+    <h1>Sign In</h1>
+</div>
+
+@* Views/Home/SignIn.cshtml *@
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<div id="signin-wrapper" class="container">
+
+            <div class="card">
+                <div class="card-body">
+                    <form asp-controller="Account" asp-action="SignIn" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div> @* BU SATIR ÇOK ÖNEMLİ! VE CLASS EKLENDİ *@
+                        <div class="form-group">
+                            <label for="username">Kullanıcı Adı:</label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Kullanıcı adınızı girin" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Şifre:</label>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Şifrenizi girin" />
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Sign In</button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+ </div>
+
+
+
+<div class="footer-bottom">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            <img src="/images/logo.png" alt="Forte Logo">
+        </div>
+
+        <!-- Bağlantı Sütunları -->
+        <div class="footer-links">
+
+            <!-- KURUMSAL -->
+            <div class="link-column">
+                <h3>Kurumsal</h3>
+                <ul>
+                    <!-- Hakkımızda -->
+                    <li><a asp-controller="Home" asp-action="About">Hakkımızda</a></li>
+
+                    <!-- "Politikalarımız" yerine Çalışanlar -->
+                    <li><a asp-controller="Home" asp-action="Employees">Çalışanlar</a></li>
+
+                    <!-- "Kariyer" yerine Hizmetlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Services">Hizmetlerimiz</a></li>
+
+                    <!-- Referanslar -->
+                    <li><a asp-controller="Home" asp-action="References">Referanslar</a></li>
+
+                    <!-- "Blog" yerine Ürünlerimiz -->
+                    <li><a asp-controller="Home" asp-action="Products">Ürünlerimiz</a></li>
+                </ul>
+            </div>
+
+            <!-- YAZILIM ÇÖZÜMLERİ -->
+            <div class="link-column">
+                <h3>Yazılım Çözümleri</h3>
+                <ul>
+                    <!-- FORIPS Suite -->
+                    <li><a href="/Home/Products#forips-suite">FORIPS Suite</a></li>
+                    <!-- DeskFor -->
+                    <li><a href="/Home/Products#deskfor">DeskFor Serisi Ürün Ailesi</a></li>
+                    <!-- DOKU -->
+                    <li><a href="/Home/Products#doku">DOKU</a></li>
+                    <!-- ELDOK -->
+                    <li><a href="/Home/Products#eldok">ELDOK</a></li>
+                </ul>
+            </div>
+
+            <!-- SİSTEM ÇÖZÜMLERİ KALDIRILDI,
+                 İSTEK ÜZERİNE TEK SÜTUN GİTTİ -->
+            <!-- İLETİŞİM -->
+            <div class="link-column">
+                <h3>İletişim</h3>
+                <ul>
+                    <li><a href="mailto:info@forte.com.tr">info@forte.com.tr</a></li>
+                    <li><a href="tel:03124734083">0312 473 40 83</a></li>
+                    <li><a href="tel:03124734086">0312 473 40 86</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sosyal Medya Linkleri -->
+        <div class="social-logos">
+            <a href="https://www.linkedin.com/company/forte-teknoloji/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                <img src="/images/link13.png" alt="LinkedIn" />
+            </a>
+            <a href="https://x.com/forte_teknoloji" target="_blank" rel="noopener noreferrer">
+                <img src="/images/x1.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/channel/UCj48ONm5KMQZXUSsMZIFo3w" target="_blank" rel="noopener noreferrer">
+                <img src="/images/youtube1.png" alt="YouTube" />
+            </a>
+        </div>
+    </div>
+</div>
+
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
